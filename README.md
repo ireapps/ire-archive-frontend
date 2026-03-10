@@ -4,9 +4,7 @@
 
 A SvelteKit frontend for searching IRE's archive of journalism resources — tipsheets, contest entries, transcripts, datasets, and training materials from decades of investigative reporting conferences.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ireapps/ire-archive-frontend&env=VITE_API_BASE_URL&envDescription=URL%20of%20the%20compatible%20FastAPI%20backend&project-name=ire-archive-frontend&repository-name=ire-archive-frontend)
-
-**Live demo:** [archive.ire.org](https://archive.ire.org)
+**Live URL:** [archive.ire.org](https://archive.ire.org)
 
 ---
 
@@ -47,14 +45,14 @@ To use the app fully, you need a running backend — see [Connecting to a Backen
 
 ## Environment Variables
 
-| Variable | Required | Default | Description |
-|---|---|---|---|
-| `VITE_API_BASE_URL` | Yes | — | URL of the compatible FastAPI backend |
-| `VITE_SITE_TITLE` | No | `"Archive Search"` | Site title for `<title>` and OG tags |
-| `VITE_SITE_DESCRIPTION` | No | `"Search thousands of tipsheets..."` | Meta description |
-| `VITE_SITE_IMAGE` | No | `"/logo.png"` | OG image path (relative to `/static` or absolute URL) |
-| `VITE_CATEGORIES` | No | `["audio","contest entry","dataset","journal","tipsheet","webinar"]` | Valid resource categories (JSON array) |
-| `VITE_AUTH_BYPASS` | No | `"false"` | Skip auth for local dev/testing (never use in production) |
+| Variable                | Required | Default                                                              | Description                                               |
+| ----------------------- | -------- | -------------------------------------------------------------------- | --------------------------------------------------------- |
+| `VITE_API_BASE_URL`     | Yes      | —                                                                    | URL of the compatible FastAPI backend                     |
+| `VITE_SITE_TITLE`       | No       | `"Archive Search"`                                                   | Site title for `<title>` and OG tags                      |
+| `VITE_SITE_DESCRIPTION` | No       | `"Search thousands of tipsheets..."`                                 | Meta description                                          |
+| `VITE_SITE_IMAGE`       | No       | `"/logo.png"`                                                        | OG image path (relative to `/static` or absolute URL)     |
+| `VITE_CATEGORIES`       | No       | `["audio","contest entry","dataset","journal","tipsheet","webinar"]` | Valid resource categories (JSON array)                    |
+| `VITE_AUTH_BYPASS`      | No       | `"false"`                                                            | Skip auth for local dev/testing (never use in production) |
 
 See [.env.example](.env.example) for a documented template.
 
@@ -116,9 +114,7 @@ Output goes to `dist/`. The app uses SvelteKit's static adapter, so the output i
 
 ## Deploying
 
-### Vercel (Recommended)
-
-Use the one-click deploy button at the top of this README, or:
+### Vercel
 
 ```bash
 npm i -g vercel
