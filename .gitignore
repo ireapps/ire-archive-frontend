@@ -9,10 +9,10 @@ dist/
 .env
 .env.local
 .env.*.local
+.env.development
+.env.production
 # Allow example and non-secret env files
 !.env.example
-!.env.development
-!.env.production
 
 # Test output
 coverage/
