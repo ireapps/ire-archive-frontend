@@ -1,0 +1,128 @@
+<script lang="ts">
+  /**
+   * PdfViewer Component
+   *
+   * A standalone component for displaying PDF files in an iframe.
+   * Optimized for 8.5x11 inch documents with responsive behavior.
+   *
+   * Props:
+   * - url: The URL of the PDF file to display
+   * - title: Accessible title for the iframe
+   * - downloadName: Name of the file for display in error messages
+   */
+
+  interface Props {
+    url: string;
+    title: string;
+    downloadName: string;
+  }
+
+  let { url, title, downloadName }: Props = $props();
+
+  let hasError = $state(false);
+  let isLoading = $state(true);
+
+  function handleLoad() {
+    isLoading = false;
+  }
+
+  function handleError() {
+    isLoading = false;
+    hasError = true;
+  }
+</script>
+
+<div class="pdf-viewer">
+  {#if hasError}
+    <div class="pdf-error">
+      <p>Unable to display PDF. The file may be unavailable or your browser may not support embedded PDFs.</p>
+      <p class="pdf-error-hint">
+        Try <a href={url} target="_blank" rel="noopener noreferrer">downloading {downloadName}</a> instead.
+      </p>
+    </div>
+  {:else}
+    {#if isLoading}
+      <div class="pdf-loading">
+        <p>Loading PDF...</p>
+      </div>
+    {/if}
+    <iframe
+      src={url}
+      {title}
+      onload={handleLoad}
+      onerror={handleError}
+      class:loading={isLoading}
+    ></iframe>
+  {/if}
+</div>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+
+  .pdf-viewer {
+    border: 1px solid $color-border-dark;
+    border-radius: $radius-md;
+    overflow: hidden;
+    background: $color-bg-light;
+    position: relative;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  iframe {
+    width: 100%;
+    height: 1100px; /* Optimized for 8.5x11 documents at ~850px width */
+    border: none;
+    display: block;
+    background: $color-bg-white;
+
+    &.loading {
+      opacity: 0;
+    }
+
+    @include tablet-down {
+      height: 800px;
+    }
+  }
+
+  .pdf-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $color-bg-light;
+    color: $color-text-light;
+
+    p {
+      margin: 0;
+      font-size: $font-size-md - 0.0375rem;
+    }
+  }
+
+  .pdf-error {
+    padding: $spacing-2xl;
+    text-align: center;
+    color: $color-text-light;
+
+    p {
+      margin: $spacing-sm 0;
+      font-size: $font-size-md + 0.0125rem;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: underline;
+    }
+  }
+
+  .pdf-error-hint {
+    font-size: $font-size-md - 0.0375rem;
+    margin-top: $spacing-lg;
+  }
+</style>

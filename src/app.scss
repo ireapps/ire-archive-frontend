@@ -1,0 +1,55 @@
+/**
+ * Global styles for IRE Resource Center
+ * Most styles are scoped to components
+ */
+
+/* Import shared variables - must be first! */
+@use './lib/styles/variables' as *;
+
+@font-face {
+  font-family: 'Mogan';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('./assets/Mogan-Regular.woff2') format('woff2'),
+       url('./assets/Mogan-Regular.otf') format('opentype');
+}
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root styles */
+:root {
+  --color-headline: #{$color-headline};
+  --color-link: #{$color-link};
+  --color-link-hover: #{$color-link-hover};
+  --color-accent: #{$color-link};
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Body and app container */
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+a {
+	color: $color-link;
+	text-decoration: none;
+}
+
+a:hover {
+	color: $color-link-hover;
+	text-decoration: underline;
+}

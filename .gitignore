@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.svelte-kit/
+
+# Environment files (never commit secrets)
+.env
+.env.local
+.env.*.local
+# Allow example and non-secret env files
+!.env.example
+!.env.development
+!.env.production
+
+# Test output
+coverage/
+playwright-report/
+test-results/
+
+# Editor
+.DS_Store
+.vscode/settings.json
+*.log
+
+# Vercel
+.vercel/

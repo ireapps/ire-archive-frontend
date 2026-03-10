@@ -1,0 +1,43 @@
+{
+  "name": "site",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:firefox": "playwright test --project=firefox",
+    "test:e2e:preview": "TEST_MODE=preview playwright test",
+    "test:e2e:preview:ui": "TEST_MODE=preview playwright test --ui"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@sveltejs/adapter-static": "^3.0.10",
+    "@sveltejs/kit": "^2.48.5",
+    "@sveltejs/vite-plugin-svelte": "^6.2.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/svelte": "^5.2.9",
+    "@tsconfig/svelte": "^5.0.5",
+    "@types/node": "^24.10.0",
+    "@vitest/coverage-v8": "^4.0.14",
+    "jsdom": "^27.2.0",
+    "prettier-plugin-svelte": "^3.4.0",
+    "sass": "^1.94.2",
+    "svelte": "^5.43.5",
+    "svelte-check": "^4.3.3",
+    "typescript": "~5.9.3",
+    "vite": "^7.2.2",
+    "vitest": "^4.0.14"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.6.1",
+    "lucide-svelte": "^0.561.0"
+  }
+}

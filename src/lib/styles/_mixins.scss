@@ -1,0 +1,73 @@
+// Shared SCSS mixins for common UI patterns
+
+@use 'variables' as *;
+
+// Reset button to plain styling (removes browser defaults)
+@mixin button-reset {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-link);
+    outline-offset: 2px;
+  }
+}
+
+// Standard link styling used throughout the app
+@mixin link-style {
+  color: var(--color-link);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+  }
+}
+
+// Card/item container with border separator
+@mixin card-item($padding: $spacing-lg) {
+  padding: $padding 0;
+  border-bottom: 1px solid $color-border;
+
+  &:first-of-type {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+// Byline text styling
+@mixin byline-text {
+  color: $color-text-light;
+  font-size: $font-size-sm;
+  margin-bottom: $spacing-xs;
+}
+
+// Badge container layout
+@mixin badge-container {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+// Card title styling
+@mixin card-title($font-size: $font-size-xl) {
+  margin: 0 0 $spacing-xs 0;
+  font-size: $font-size;
+  font-weight: 700;
+  line-height: 1.4;
+
+  a {
+    @include link-style;
+  }
+}
