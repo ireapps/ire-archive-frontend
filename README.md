@@ -47,7 +47,7 @@ To use the app fully, you need a running backend — see [Connecting to a Backen
 
 | Variable                | Required | Default                                                              | Description                                               |
 | ----------------------- | -------- | -------------------------------------------------------------------- | --------------------------------------------------------- |
-| `VITE_API_BASE_URL`     | Yes      | `/api`                                                               | URL of the backend API (`/api` for Vercel proxy, full URL for direct) |
+| `VITE_API_BASE_URL`     | Yes      | `/api`                                                               | Backend API path or URL (set to `/api` for Vercel proxy; set to a full URL like `http://localhost:8000` for local dev) |
 | `BACKEND_URL`           | Vercel   | —                                                                    | Backend origin for the Vercel rewrite proxy (e.g. `https://api.archive.ire.org`) |
 | `VITE_SITE_TITLE`       | No       | `"Archive Search"`                                                   | Site title for `<title>` and OG tags                      |
 | `VITE_SITE_DESCRIPTION` | No       | `"Search thousands of tipsheets..."`                                 | Meta description                                          |
