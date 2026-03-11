@@ -18,10 +18,6 @@
 
   .skeleton-card {
     @include card-item(var(--spacing-lg));
-
-    &.compact {
-      padding: var(--spacing-lg) 0;
-    }
   }
 
   /* Base skeleton element styles */

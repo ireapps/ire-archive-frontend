@@ -138,16 +138,13 @@
     line-height: 1.1;
     text-align: left;
 
-    // Mobile-first: base size for smallest screens (0-500px)
     font-size: var(--font-size-3xl);
 
-    // Tablet range (501px-767px)
-    @media (min-width: 501px) and (max-width: 767px) {
+    @include desktop {
       font-size: var(--font-size-4xl);
     }
 
-    // Desktop (768px+)
-    @include desktop {
+    @include wide {
       font-size: var(--font-size-5xl);
     }
   }
