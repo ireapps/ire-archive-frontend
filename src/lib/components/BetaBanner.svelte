@@ -5,7 +5,7 @@
 <div class="beta-banner">
   <span class="beta-text">
     This is an early release. Report problems to
-    <a href="mailto:help@ire.org">help@ire.org</a>.
+    <a href="mailto:help@ire.org">help@ire.org</a>
   </span>
 </div>
 
