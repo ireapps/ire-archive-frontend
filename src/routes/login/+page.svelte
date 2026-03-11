@@ -224,7 +224,7 @@
     }
 
     &:hover:not(:disabled) {
-      background: #333;
+      background: var(--color-headline-hover, #333);
     }
 
     &:disabled {
