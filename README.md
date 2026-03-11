@@ -47,7 +47,8 @@ To use the app fully, you need a running backend — see [Connecting to a Backen
 
 | Variable                | Required | Default                                                              | Description                                               |
 | ----------------------- | -------- | -------------------------------------------------------------------- | --------------------------------------------------------- |
-| `VITE_API_BASE_URL`     | Yes      | —                                                                    | URL of the compatible FastAPI backend                     |
+| `VITE_API_BASE_URL`     | Yes      | `/api`                                                               | Backend API path or URL (set to `/api` for Vercel proxy; set to a full URL like `http://localhost:8000` for local dev) |
+| `BACKEND_URL`           | Vercel   | —                                                                    | Backend origin for the Vercel rewrite proxy (e.g. `https://api.archive.ire.org`) |
 | `VITE_SITE_TITLE`       | No       | `"Archive Search"`                                                   | Site title for `<title>` and OG tags                      |
 | `VITE_SITE_DESCRIPTION` | No       | `"Search thousands of tipsheets..."`                                 | Meta description                                          |
 | `VITE_SITE_IMAGE`       | No       | `"/logo.png"`                                                        | OG image path (relative to `/static` or absolute URL)     |
@@ -121,7 +122,16 @@ npm i -g vercel
 vercel --prod
 ```
 
-Set `VITE_API_BASE_URL` in your Vercel project's environment variables.
+Set the following environment variables in your Vercel project settings:
+
+| Variable            | Value                              | Scope                      |
+| ------------------- | ---------------------------------- | -------------------------- |
+| `VITE_API_BASE_URL` | `/api`                             | Production, Preview        |
+| `BACKEND_URL`       | `https://api.archive.ire.org`      | Production, Preview        |
+
+`BACKEND_URL` is consumed by the rewrite rule in `vercel.json`, which proxies
+`/api/*` requests to the backend. This keeps all browser traffic same-origin,
+eliminating CORS restrictions that would otherwise block preview deployments.
 
 ### Other Static Hosts
 

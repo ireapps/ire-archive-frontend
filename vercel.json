@@ -4,5 +4,8 @@
   "outputDirectory": "dist",
   "installCommand": "npm ci",
   "regions": ["iad1"],
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "$BACKEND_URL/:path*" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }

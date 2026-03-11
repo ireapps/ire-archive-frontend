@@ -25,5 +25,8 @@ test-results/
 .vscode/settings.json
 *.log
 
+# Generated declaration files
+vite.config.d.ts
+
 # Vercel
 .vercel/
