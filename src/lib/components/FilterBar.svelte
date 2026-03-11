@@ -206,7 +206,7 @@
   @use "../styles/variables" as *;
 
   .filter-bar {
-    margin: var(--spacing-xl) 0;
+    margin: var(--spacing-lg) 0;
     border: 1px solid var(--color-border-dark);
     background: var(--color-bg-light);
   }
