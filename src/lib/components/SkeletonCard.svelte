@@ -20,7 +20,7 @@
     @include card-item(var(--spacing-lg));
 
     &.compact {
-      padding: calc(var(--spacing-md) + 0.25rem) 0;
+      padding: var(--spacing-lg) 0;
     }
   }
 
@@ -77,7 +77,7 @@
   .skeleton-line {
     height: 0.875rem;
     width: 100%;
-    margin-bottom: calc(var(--spacing-sm) - 0.125rem);
+    margin-bottom: var(--spacing-xs);
 
     &:last-child {
       margin-bottom: 0;

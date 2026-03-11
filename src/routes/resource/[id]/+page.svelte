@@ -201,13 +201,13 @@
   }
 
   h1 {
-    font-size: calc(var(--font-size-2xl) * 1.5);
+    font-size: var(--font-size-3xl);
     font-weight: 700;
     margin: 0 0 var(--spacing-sm) 0;
     color: var(--color-headline);
     line-height: 1.3;
     @include tablet-down {
-      font-size: calc(var(--font-size-2xl) * 1.25);
+      font-size: var(--font-size-2xl);
     }
   }
 
