@@ -62,6 +62,21 @@ Required CORS settings:
 The reference backend supports runtime-configurable origins via the
 `ADDITIONAL_ALLOWED_ORIGINS` environment variable (see `app/config.py`).
 
+### Vercel rewrite proxy (recommended)
+
+When the frontend is deployed to Vercel, a rewrite rule in `vercel.json` proxies
+`/api/*` requests to the backend. This makes all API traffic same-origin from the
+browser's perspective, so **no CORS configuration is needed** for the frontend
+origin. This is especially important for Vercel preview deployments, which use
+dynamic subdomains that cannot be predicted in advance.
+
+To use the proxy, set these Vercel environment variables:
+
+| Variable            | Value                         |
+|---------------------|-------------------------------|
+| `VITE_API_BASE_URL` | `/api`                        |
+| `BACKEND_URL`       | Backend origin (e.g. `https://api.archive.ire.org`) |
+
 ---
 
 ## Endpoints

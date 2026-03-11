@@ -18,11 +18,12 @@ export const SITE_METADATA = {
 } as const;
 
 /**
- * Get the API base URL from environment variables
- * Falls back to production URL if not set
+ * Get the API base URL from environment variables.
+ * Falls back to "/api" which works with the Vercel rewrite proxy
+ * defined in vercel.json (see BACKEND_URL env var).
  */
 export const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "https://api.archive.ire.org";
+  import.meta.env.VITE_API_BASE_URL || "/api";
 
 /**
  * API endpoints
