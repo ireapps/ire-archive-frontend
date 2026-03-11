@@ -4,6 +4,7 @@ node_modules/
 # Build output
 dist/
 .svelte-kit/
+vite.config.d.ts
 
 # Environment files (never commit secrets)
 .env
