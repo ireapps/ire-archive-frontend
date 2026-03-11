@@ -28,7 +28,7 @@
 
   .search-box {
     display: flex;
-    gap: calc(var(--spacing-md) - 0.125rem);
+    gap: var(--spacing-sm);
 
     @include tablet-down {
       gap: var(--spacing-sm);
@@ -56,7 +56,7 @@
   }
 
   button {
-    padding: var(--spacing-lg) calc(var(--spacing-lg) + 0.25rem);
+    padding: var(--spacing-lg) var(--spacing-xl);
     font-size: var(--font-size-lg);
     background: var(--color-link);
     color: white;

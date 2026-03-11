@@ -113,20 +113,12 @@
     font-weight: 700;
     margin: 0;
     text-align: center;
-    // Mobile-first: base size for smallest screens (0-400px)
-    font-size: calc(var(--font-size-3xl) * 0.95);
+    font-size: var(--font-size-3xl);
 
-    // Tablet range (401px-767px)
-    @media (min-width: 401px) and (max-width: 767px) {
-      font-size: calc(var(--font-size-4xl) * 0.9);
-    }
-
-    // Desktop (768px-959px)
     @include desktop {
-      font-size: calc(var(--font-size-4xl) * 1.15);
+      font-size: var(--font-size-4xl);
     }
 
-    // Wide screens (960px+)
     @include wide {
       font-size: var(--font-size-5xl);
     }

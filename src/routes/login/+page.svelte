@@ -100,7 +100,7 @@
     width: 100%;
 
     @include mobile {
-      padding: var(--spacing-xl) calc(var(--spacing-lg) * 1.2);
+      padding: var(--spacing-xl) var(--spacing-lg);
     }
   }
 
@@ -138,22 +138,14 @@
     line-height: 1.1;
     text-align: left;
 
-    // Mobile-first: base size for smallest screens (0-400px)
-    font-size: calc(var(--font-size-3xl) * 0.85);
+    font-size: var(--font-size-3xl);
 
-    // Small screens (401px-500px)
-    @media (min-width: 401px) and (max-width: 500px) {
-      font-size: calc(var(--font-size-4xl) * 0.75);
-    }
-
-    // Tablet range (501px-767px)
-    @media (min-width: 501px) and (max-width: 767px) {
-      font-size: calc(var(--font-size-4xl) * 0.9);
-    }
-
-    // Desktop (768px-959px)
     @include desktop {
-      font-size: calc(var(--font-size-4xl) * 1.1);
+      font-size: var(--font-size-4xl);
+    }
+
+    @include wide {
+      font-size: var(--font-size-5xl);
     }
   }
 

@@ -177,7 +177,7 @@
     flex-shrink: 0;
     display: inline-flex;
     align-items: center;
-    padding: calc(var(--spacing-xs) - 0.125rem) var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
     background-color: var(--color-badge-bg);
     color: var(--color-badge-text);
     font-size: var(--font-size-sm);
