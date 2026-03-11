@@ -14,14 +14,13 @@
 </div>
 
 <style lang="scss">
-  @use '../styles/variables' as *;
   @use '../styles/mixins' as *;
 
   .skeleton-card {
-    @include card-item($spacing-lg);
+    @include card-item(var(--spacing-lg));
 
     &.compact {
-      padding: $spacing-md + 0.25rem 0;
+      padding: calc(var(--spacing-md) + 0.25rem) 0;
     }
   }
 
@@ -78,7 +77,7 @@
   .skeleton-line {
     height: 0.875rem;
     width: 100%;
-    margin-bottom: $spacing-sm - 0.125rem;
+    margin-bottom: calc(var(--spacing-sm) - 0.125rem);
 
     &:last-child {
       margin-bottom: 0;

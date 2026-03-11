@@ -245,7 +245,7 @@
   .site-title {
     font-family: "Mogan", serif;
     color: var(--color-headline);
-    font-size: $font-size-4xl;
+    font-size: var(--font-size-4xl);
     font-weight: 700;
     margin: 0;
     padding: var(--spacing-sm) 0 var(--spacing-sm) 0;
@@ -269,7 +269,7 @@
     }
 
     @include tablet-down {
-      font-size: $font-size-3xl;
+      font-size: var(--font-size-3xl);
     }
   }
 

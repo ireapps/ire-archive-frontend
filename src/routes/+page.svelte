@@ -114,21 +114,21 @@
     margin: 0;
     text-align: center;
     // Mobile-first: base size for smallest screens (0-400px)
-    font-size: $font-size-3xl * 0.95;
+    font-size: calc(var(--font-size-3xl) * 0.95);
 
     // Tablet range (401px-767px)
     @media (min-width: 401px) and (max-width: 767px) {
-      font-size: $font-size-4xl * 0.9;
+      font-size: calc(var(--font-size-4xl) * 0.9);
     }
 
     // Desktop (768px-959px)
     @include desktop {
-      font-size: $font-size-4xl * 1.15;
+      font-size: calc(var(--font-size-4xl) * 1.15);
     }
 
     // Wide screens (960px+)
     @include wide {
-      font-size: $font-size-5xl;
+      font-size: var(--font-size-5xl);
     }
   }
 

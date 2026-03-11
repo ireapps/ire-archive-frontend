@@ -45,13 +45,11 @@
 {/if}
 
 <style lang="scss">
-  @use "../styles/variables" as *;
-
   .category-badge {
     display: inline-flex;
     align-items: center;
     column-gap: var(--spacing-xs);
-    padding: $spacing-xs - 0.125rem var(--spacing-sm);
+    padding: calc(var(--spacing-xs) - 0.125rem) var(--spacing-sm);
     background-color: var(--color-badge-bg);
     color: var(--color-badge-text);
     font-size: var(--font-size-xs);

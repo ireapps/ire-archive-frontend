@@ -3,10 +3,6 @@
  * Most styles are scoped to components
  */
 
-/* Import shared variables and color functions */
-@use "sass:color";
-@use './lib/styles/variables' as *;
-
 @font-face {
   font-family: 'Mogan';
   font-weight: 400;
@@ -26,14 +22,14 @@
 /* Root styles */
 :root {
   /* Text colors */
-  --color-headline: #{$color-headline};
+  --color-headline: #000;
   --color-text: #0f0d0a;
-  --color-text-light: #{$color-text-light};
+  --color-text-light: #666;
   --color-text-muted: #999;
 
   /* Link colors */
   --color-link: #1a5988;
-  --color-link-hover: #{color.adjust(#1a5988, $lightness: -15%)};
+  --color-link-hover: #0e2f48;
   --color-accent: #1a5988;
 
   /* Background colors */
@@ -44,13 +40,15 @@
   --color-bg-hover: #ebebeb;
 
   /* Border colors */
-  --color-border: #{$color-border};
+  --color-border: #e0e0e0;
   --color-border-light: #eee;
-  --color-border-dark: #{$color-border-dark};
+  --color-border-dark: #ccc;
+  --color-border-darker: #999;
 
   /* UI states */
   --color-focus: #0066cc;
-  --color-error: #{$color-error};
+  --color-error: #d32f2f;
+  --color-error-dark: #ab2424;
 
   /* Badge colors */
   --color-badge-bg: #f0f0f0;
@@ -66,22 +64,26 @@
   --color-info-border: #bee5eb;
 
   /* Spacing */
-  --spacing-xs: #{$spacing-xs};
-  --spacing-sm: #{$spacing-sm};
-  --spacing-md: #{$spacing-md};
-  --spacing-lg: #{$spacing-lg};
-  --spacing-xl: #{$spacing-xl};
-  --spacing-2xl: #{$spacing-2xl};
-  --spacing-3xl: #{$spacing-3xl};
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 1.5rem;
+  --spacing-2xl: 2rem;
+  --spacing-3xl: 2.5rem;
 
   /* Font sizes */
-  --font-size-xs: #{$font-size-xs};
-  --font-size-sm: #{$font-size-sm};
-  --font-size-base: #{$font-size-base};
-  --font-size-md: #{$font-size-md};
-  --font-size-lg: #{$font-size-lg};
-  --font-size-xl: #{$font-size-xl};
-  --font-size-2xl: #{$font-size-2xl};
+  --font-size-xs: 0.6875rem; /* 11px */
+  --font-size-sm: 0.8125rem; /* 13px */
+  --font-size-base: 0.875rem; /* 14px */
+  --font-size-md: 0.9375rem; /* 15px */
+  --font-size-lg: 1rem; /* 16px */
+  --font-size-xl: 1.1rem; /* ~17.6px */
+  --font-size-2xl: 1.2rem; /* ~19px */
+  --font-size-3xl: 2rem; /* 32px */
+  --font-size-4xl: 2.75rem; /* 44px */
+  --font-size-5xl: 3.25rem; /* 52px */
+  --font-size-6xl: 4rem; /* 64px */
 
   /* Transitions */
   --transition-fast: 0.2s;

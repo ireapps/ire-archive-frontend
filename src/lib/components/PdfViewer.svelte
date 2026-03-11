@@ -101,7 +101,7 @@
 
     p {
       margin: 0;
-      font-size: $font-size-md - 0.0375rem;
+      font-size: calc(var(--font-size-md) - 0.0375rem);
     }
   }
 
@@ -112,7 +112,7 @@
 
     p {
       margin: var(--spacing-sm) 0;
-      font-size: $font-size-md + 0.0125rem;
+      font-size: calc(var(--font-size-md) + 0.0125rem);
     }
 
     a {
@@ -122,7 +122,7 @@
   }
 
   .pdf-error-hint {
-    font-size: $font-size-md - 0.0375rem;
+    font-size: calc(var(--font-size-md) - 0.0375rem);
     margin-top: var(--spacing-lg);
   }
 </style>

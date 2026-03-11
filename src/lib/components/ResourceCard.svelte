@@ -146,16 +146,15 @@
 
 <style lang="scss">
   @use "../styles/mixins" as *;
-  @use "../styles/variables" as *;
 
   .resource-card {
     h3 {
-      @include card-title($font-size-xl);
+      @include card-title(var(--font-size-xl));
       margin-bottom: 0;
     }
 
     h4 {
-      @include card-title($font-size-lg);
+      @include card-title(var(--font-size-lg));
       margin-bottom: 0;
     }
 
@@ -178,7 +177,7 @@
     flex-shrink: 0;
     display: inline-flex;
     align-items: center;
-    padding: $spacing-xs - 0.125rem var(--spacing-sm);
+    padding: calc(var(--spacing-xs) - 0.125rem) var(--spacing-sm);
     background-color: var(--color-badge-bg);
     color: var(--color-badge-text);
     font-size: var(--font-size-sm);

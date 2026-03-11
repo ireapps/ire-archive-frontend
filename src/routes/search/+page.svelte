@@ -266,7 +266,7 @@
     }
 
     &:focus {
-      @include focus-outline($color-headline);
+      @include focus-outline;
     }
   }
 

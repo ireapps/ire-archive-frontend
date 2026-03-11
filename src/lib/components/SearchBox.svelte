@@ -28,7 +28,7 @@
 
   .search-box {
     display: flex;
-    gap: $spacing-md - 0.125rem;
+    gap: calc(var(--spacing-md) - 0.125rem);
 
     @include tablet-down {
       gap: var(--spacing-sm);
@@ -39,7 +39,7 @@
     flex: 1;
     padding: var(--spacing-lg) var(--spacing-md);
     font-size: var(--font-size-lg);
-    border: 1px solid $color-border-darker;
+    border: 1px solid var(--color-border-darker);
     background: var(--color-bg-white);
     @include hover-transition(border-color);
 
@@ -56,7 +56,7 @@
   }
 
   button {
-    padding: $spacing-lg $spacing-lg + 0.25rem;
+    padding: var(--spacing-lg) calc(var(--spacing-lg) + 0.25rem);
     font-size: var(--font-size-lg);
     background: var(--color-link);
     color: white;

@@ -220,7 +220,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: $spacing-sm + 0.125rem;
+    gap: calc(var(--spacing-sm) + 0.125rem);
     font-size: var(--font-size-base);
     color: var(--color-text);
     text-align: left;
@@ -248,15 +248,15 @@
   }
 
   .expand-icon {
-    font-size: $font-size-base - 0.0125rem;
+    font-size: calc(var(--font-size-base) - 0.0125rem);
     color: var(--color-text-light);
   }
 
   .filter-controls {
-    padding: $spacing-md + 0.1875rem;
+    padding: calc(var(--spacing-md) + 0.1875rem);
     display: flex;
     flex-direction: column;
-    gap: $spacing-md + 0.1875rem;
+    gap: calc(var(--spacing-md) + 0.1875rem);
     font-size: var(--font-size-sm); // Slightly smaller text to reduce wrapping
 
     @include tablet-down {
@@ -293,7 +293,7 @@
     }
 
     select {
-      padding: $spacing-sm + 0.125rem $spacing-md - 0.125rem;
+      padding: calc(var(--spacing-sm) + 0.125rem) calc(var(--spacing-md) - 0.125rem);
       font-size: var(--font-size-base);
       border: 1px solid var(--color-border-dark);
       border-radius: var(--radius-md);
@@ -398,9 +398,9 @@
 
     .mode-toggle-tooltip {
       position: absolute;
-      top: calc(100% + $spacing-xs);
+      top: calc(100% + var(--spacing-xs));
       left: 0;
-      padding: $spacing-xs + 0.125rem $spacing-sm + 0.125rem;
+      padding: calc(var(--spacing-xs) + 0.125rem) calc(var(--spacing-sm) + 0.125rem);
       max-width: 20rem;
       font-size: var(--font-size-sm);
       line-height: 1.3;
@@ -420,9 +420,9 @@
 
   .clear-filters {
     @include desktop {
-      margin-top: $spacing-lg + 0.125rem;
+      margin-top: calc(var(--spacing-lg) + 0.125rem);
     }
-    padding: $spacing-sm + 0.125rem $spacing-md + 0.25rem;
+    padding: calc(var(--spacing-sm) + 0.125rem) calc(var(--spacing-md) + 0.25rem);
     background: var(--color-bg-white);
     border: 1px solid var(--color-border-dark);
     border-radius: var(--radius-md);
