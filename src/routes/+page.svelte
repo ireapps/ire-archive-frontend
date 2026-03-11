@@ -65,10 +65,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: $spacing-xl 0;
+    padding: var(--spacing-xl) 0;
     width: 100%;
     @include tablet-down {
-      padding: $spacing-xs 0;
+      padding: var(--spacing-xs) 0;
     }
   }
 
@@ -76,17 +76,17 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: $spacing-md;
-    margin-bottom: $spacing-md;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
 
     @include tablet-down {
-      gap: $spacing-sm;
+      gap: var(--spacing-sm);
     }
 
     a {
       display: flex;
       align-items: center;
-      transition: opacity $transition-fast;
+      transition: opacity var(--transition-fast);
 
       &:hover {
         opacity: 0.7;
@@ -133,25 +133,25 @@
   }
 
   .homepage-description {
-    color: $color-text-light;
-    font-size: $font-size-lg;
-    margin: $spacing-xs 0 $spacing-lg 0;
+    color: var(--color-text-light);
+    font-size: var(--font-size-lg);
+    margin: var(--spacing-xs) 0 var(--spacing-lg) 0;
     text-align: center;
     max-width: 800px;
     line-height: 1.45;
 
     @include tablet {
-      font-size: $font-size-md;
-      margin: 0 0 $spacing-xs 0;
+      font-size: var(--font-size-md);
+      margin: 0 0 var(--spacing-xs) 0;
       max-width: 95%;
     }
     @include mobile {
-      font-size: $font-size-sm;
+      font-size: var(--font-size-sm);
     }
   }
 
   .homepage-search-wrapper {
-    margin: $spacing-lg 0 0 0;
+    margin: var(--spacing-lg) 0 0 0;
     width: 100%;
     max-width: 500px;
 

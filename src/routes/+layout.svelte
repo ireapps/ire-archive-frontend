@@ -210,9 +210,9 @@
     font-family: "Roboto", sans-serif;
     max-width: 70ch;
     margin: 0 auto;
-    padding: 0 $spacing-lg $spacing-md $spacing-lg;
-    background: $color-bg-lighter;
-    color: $color-text;
+    padding: 0 var(--spacing-lg) var(--spacing-md) var(--spacing-lg);
+    background: var(--color-bg-light);
+    color: var(--color-text);
     line-height: 1.6;
     font-size: 20px;
   }
@@ -237,7 +237,7 @@
 
       @include tablet-down {
         align-items: flex-start;
-        padding-top: $spacing-3xl;
+        padding-top: var(--spacing-3xl);
       }
     }
   }
@@ -248,12 +248,12 @@
     font-size: $font-size-4xl;
     font-weight: 700;
     margin: 0;
-    padding: $spacing-sm 0 $spacing-sm 0;
+    padding: var(--spacing-sm) 0 var(--spacing-sm) 0;
     border-bottom: 2px solid var(--color-headline);
     line-height: 1.1;
     display: flex;
     align-items: center;
-    gap: $spacing-md;
+    gap: var(--spacing-md);
 
     a {
       color: inherit;
@@ -276,7 +276,7 @@
   .logo-link {
     display: flex;
     align-items: center;
-    transition: opacity $transition-fast;
+    transition: opacity var(--transition-fast);
 
     &:hover {
       opacity: 0.7;
@@ -293,13 +293,13 @@
   }
 
   .subtitle {
-    color: $color-text-light;
-    font-size: $font-size-xl;
-    margin: $spacing-md 0 $spacing-xl 0;
+    color: var(--color-text-light);
+    font-size: var(--font-size-xl);
+    margin: var(--spacing-md) 0 var(--spacing-xl) 0;
     line-height: 1.45;
 
     @include tablet-down {
-      font-size: $font-size-lg;
+      font-size: var(--font-size-lg);
     }
   }
 
@@ -307,19 +307,19 @@
     display: flex;
     justify-content: flex-end;
     line-height: 1;
-    margin-bottom: $spacing-xs;
-    padding: $spacing-sm 0;
+    margin-bottom: var(--spacing-xs);
+    padding: var(--spacing-sm) 0;
   }
 
   .logout-link {
     @include button-reset;
-    font-size: $font-size-xs;
-    color: $color-text-lighter;
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
     text-decoration: none;
-    transition: color $transition-fast;
+    transition: color var(--transition-fast);
 
     &:hover {
-      color: $color-text;
+      color: var(--color-text);
       text-decoration: underline;
     }
   }
@@ -330,14 +330,14 @@
     align-items: center;
     justify-content: center;
     min-height: 50vh;
-    color: $color-text-light;
+    color: var(--color-text-light);
   }
 
   .spinner {
     width: 40px;
     height: 40px;
-    border: 3px solid #eee;
-    border-top-color: $color-text;
+    border: 3px solid var(--color-border-light);
+    border-top-color: var(--color-text);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
     margin-bottom: 1rem;

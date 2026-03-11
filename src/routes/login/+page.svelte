@@ -89,32 +89,32 @@
 
     @include tablet-down {
       align-items: flex-start;
-      margin-top: $spacing-xl;
+      margin-top: var(--spacing-xl);
     }
   }
 
   .login-card {
     background: white;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-    padding: $spacing-2xl;
+    padding: var(--spacing-2xl);
     max-width: 600px;
     width: 100%;
 
     @include mobile {
-      padding: $spacing-xl $spacing-lg * 1.2;
+      padding: var(--spacing-xl) $spacing-lg * 1.2;
     }
   }
 
   .login-header {
     display: flex;
     align-items: center;
-    gap: $spacing-md;
-    border-bottom: 2px solid $color-headline;
-    padding-bottom: $spacing-sm;
-    margin-bottom: $spacing-lg;
+    gap: var(--spacing-md);
+    border-bottom: 2px solid var(--color-headline);
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
 
     @include mobile {
-      margin-bottom: $spacing-md;
+      margin-bottom: var(--spacing-md);
     }
   }
 
@@ -127,7 +127,7 @@
     }
     @include mobile {
       height: 30px;
-      gap: $spacing-sm;
+      gap: var(--spacing-sm);
     }
   }
 
@@ -135,7 +135,7 @@
     font-family: "Mogan", serif;
     font-weight: 700;
     margin: 0;
-    color: $color-headline;
+    color: var(--color-headline);
     line-height: 1.1;
     text-align: left;
 
@@ -159,43 +159,43 @@
   }
 
   .description {
-    color: $color-text-light;
-    font-size: $font-size-xl;
-    margin-bottom: $spacing-lg;
+    color: var(--color-text-light);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-lg);
     line-height: 1.45;
     text-align: left;
 
     @include tablet {
-      font-size: $font-size-md;
+      font-size: var(--font-size-md);
     }
     @include mobile {
-      font-size: $font-size-sm;
-      margin-bottom: $spacing-md;
+      font-size: var(--font-size-sm);
+      margin-bottom: var(--spacing-md);
     }
   }
 
   .notice {
-    padding: $spacing-lg;
-    border-radius: $radius-md;
-    margin-bottom: $spacing-xl;
-    font-size: $font-size-md;
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-xl);
+    font-size: var(--font-size-md);
     text-align: left;
   }
 
   .notice.info {
-    background: #d1ecf1;
-    color: #0c5460;
-    border: 1px solid #bee5eb;
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border: 1px solid var(--color-info-border);
   }
 
   .notice.error {
-    background: $color-error;
+    background: var(--color-error);
     color: white;
     border: 1px solid color.adjust($color-error, $lightness: -10%);
   }
 
   .notice a {
-    color: $color-link;
+    color: var(--color-link);
     text-decoration: none;
 
     &:hover {
@@ -205,23 +205,23 @@
 
   .login-button {
     width: 100%;
-    padding: $spacing-lg $spacing-2xl;
-    font-size: $font-size-lg;
+    padding: var(--spacing-lg) var(--spacing-2xl);
+    font-size: var(--font-size-lg);
     font-weight: 600;
     color: white;
-    background: $color-headline;
+    background: var(--color-headline);
     border: none;
-    border-radius: $radius-md;
+    border-radius: var(--radius-md);
     cursor: pointer;
-    transition: background $transition-fast;
+    transition: background var(--transition-fast);
 
     @include tablet {
-      padding: $spacing-md $spacing-xl;
-      font-size: $font-size-md;
+      padding: var(--spacing-md) var(--spacing-xl);
+      font-size: var(--font-size-md);
     }
     @include mobile {
-      padding: $spacing-lg $spacing-lg;
-      font-size: $font-size-sm;
+      padding: var(--spacing-lg) var(--spacing-lg);
+      font-size: var(--font-size-sm);
     }
 
     &:hover:not(:disabled) {
@@ -238,7 +238,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: $spacing-sm;
+    gap: var(--spacing-sm);
   }
 
   .button-spinner {
@@ -257,18 +257,18 @@
   }
 
   .membership-note {
-    margin-top: $spacing-lg;
-    font-size: $font-size-base;
-    color: $color-text-light;
+    margin-top: var(--spacing-lg);
+    font-size: var(--font-size-base);
+    color: var(--color-text-light);
     line-height: 1.5;
     text-align: center;
 
     @include mobile {
-      font-size: $font-size-sm;
+      font-size: var(--font-size-sm);
     }
 
     a {
-      color: $color-link;
+      color: var(--color-link);
       text-decoration: none;
 
       &:hover {

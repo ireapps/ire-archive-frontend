@@ -31,9 +31,9 @@
   @use "../styles/variables" as *;
 
   .metadata-line {
-    color: $color-text-light;
-    font-size: $font-size-sm;
-    margin-bottom: $spacing-xs;
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xs);
   }
 
   .metadata-line__text {
@@ -43,6 +43,6 @@
   }
 
   .metadata-line__separator {
-    margin: 0 $spacing-xs;
+    margin: 0 var(--spacing-xs);
   }
 </style>

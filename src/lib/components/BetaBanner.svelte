@@ -13,11 +13,11 @@
   @use "../styles/variables" as *;
 
   .beta-banner {
-    background: $color-link;
+    background: var(--color-link);
     color: white;
     text-align: center;
-    padding: $spacing-sm $spacing-lg;
-    font-size: $font-size-sm;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-sm);
     line-height: 1.4;
     width: 100vw;
     margin-left: calc(-50vw + 50%);

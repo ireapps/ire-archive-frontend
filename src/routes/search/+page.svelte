@@ -253,8 +253,8 @@
   .load-more-button {
     @include button-reset;
     border: 1px solid var(--color-link);
-    padding: $spacing-md $spacing-2xl;
-    font-size: $font-size-base;
+    padding: var(--spacing-md) var(--spacing-2xl);
+    font-size: var(--font-size-base);
     color: var(--color-link);
     cursor: pointer;
     @include hover-transition(background-color);
@@ -262,7 +262,7 @@
 
     &:hover {
       background-color: var(--color-link-hover);
-      color: $color-bg-white;
+      color: var(--color-bg-white);
     }
 
     &:focus {
@@ -273,6 +273,6 @@
   .loading-more {
     text-align: center;
     padding: 2rem;
-    color: var(--color-text-secondary, #666);
+    color: var(--color-text-light);
   }
 </style>

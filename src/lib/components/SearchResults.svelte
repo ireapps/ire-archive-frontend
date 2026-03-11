@@ -139,31 +139,31 @@
   }
 
   .no-results {
-    padding: $spacing-3xl 0;
+    padding: var(--spacing-3xl) 0;
     text-align: center;
-    color: $color-text-light;
-    font-size: $font-size-base;
+    color: var(--color-text-light);
+    font-size: var(--font-size-base);
   }
 
   .result-count-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: $spacing-md;
-    gap: $spacing-sm;
+    margin-bottom: var(--spacing-md);
+    gap: var(--spacing-sm);
   }
 
   .result-count {
-    color: $color-text-light;
-    font-size: $font-size-base;
+    color: var(--color-text-light);
+    font-size: var(--font-size-base);
     padding: 0;
     margin: 0;
   }
 
   // List item styling with borders
   [role="listitem"] {
-    padding: $spacing-lg 0;
-    border-top: 1px solid $color-border;
+    padding: var(--spacing-lg) 0;
+    border-top: 1px solid var(--color-border);
 
     &:last-child {
       border-bottom: none;
@@ -182,6 +182,6 @@
     bottom: 0;
     left: -7.5px;
     width: 2px;
-    background-color: $color-headline;
+    background-color: var(--color-headline);
   }
 </style>

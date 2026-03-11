@@ -50,19 +50,19 @@
   .category-badge {
     display: inline-flex;
     align-items: center;
-    column-gap: $spacing-xs;
-    padding: $spacing-xs - 0.125rem $spacing-sm;
-    background-color: $color-badge-bg;
-    color: $color-badge-text;
-    font-size: $font-size-xs;
+    column-gap: var(--spacing-xs);
+    padding: $spacing-xs - 0.125rem var(--spacing-sm);
+    background-color: var(--color-badge-bg);
+    color: var(--color-badge-text);
+    font-size: var(--font-size-xs);
     font-weight: 500;
-    border-radius: $radius-sm;
+    border-radius: var(--radius-sm);
     &:hover {
       cursor: default;
     }
 
     &.compact {
-      padding: 0.125rem $spacing-xs;
+      padding: 0.125rem var(--spacing-xs);
       font-size: 0.625rem;
       column-gap: 0.25rem;
     }

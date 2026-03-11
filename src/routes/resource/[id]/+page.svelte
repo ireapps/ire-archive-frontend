@@ -203,8 +203,8 @@
   h1 {
     font-size: $font-size-2xl * 1.5;
     font-weight: 700;
-    margin: 0 0 $spacing-sm 0;
-    color: $color-headline;
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--color-headline);
     line-height: 1.3;
     @include tablet-down {
       font-size: $font-size-2xl * 1.25;
@@ -212,12 +212,12 @@
   }
 
   .error-state {
-    padding: $spacing-3xl 0;
+    padding: var(--spacing-3xl) 0;
     text-align: center;
 
     p {
-      color: $color-error;
-      font-size: $font-size-base;
+      color: var(--color-error);
+      font-size: var(--font-size-base);
     }
   }
 </style>

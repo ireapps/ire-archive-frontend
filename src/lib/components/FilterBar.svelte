@@ -206,33 +206,33 @@
   @use "../styles/variables" as *;
 
   .filter-bar {
-    margin: $spacing-xl 0;
-    border: 1px solid $color-border-dark;
-    background: $color-bg-lighter;
+    margin: var(--spacing-xl) 0;
+    border: 1px solid var(--color-border-dark);
+    background: var(--color-bg-light);
   }
 
   .filter-toggle {
     width: 100%;
-    padding: $spacing-md $spacing-lg;
-    background: $color-bg-light;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--color-bg);
     border: none;
-    border-bottom: 1px solid $color-border-dark;
+    border-bottom: 1px solid var(--color-border-dark);
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: $spacing-sm + 0.125rem;
-    font-size: $font-size-base;
-    color: $color-text;
+    font-size: var(--font-size-base);
+    color: var(--color-text);
     text-align: left;
     @include hover-transition(background);
 
     @include tablet-down {
-      padding: $spacing-lg;
+      padding: var(--spacing-lg);
       min-height: 3rem; // 48px minimum for comfortable mobile tapping
     }
 
     &:hover {
-      background: #ebebeb;
+      background: var(--color-bg-hover);
     }
   }
 
@@ -249,7 +249,7 @@
 
   .expand-icon {
     font-size: $font-size-base - 0.0125rem;
-    color: $color-text-light;
+    color: var(--color-text-light);
   }
 
   .filter-controls {
@@ -257,11 +257,11 @@
     display: flex;
     flex-direction: column;
     gap: $spacing-md + 0.1875rem;
-    font-size: $font-size-sm; // Slightly smaller text to reduce wrapping
+    font-size: var(--font-size-sm); // Slightly smaller text to reduce wrapping
 
     @include tablet-down {
-      padding: $spacing-md;
-      gap: $spacing-md; // More spacing between controls on mobile
+      padding: var(--spacing-md);
+      gap: var(--spacing-md); // More spacing between controls on mobile
     }
 
     @include desktop {
@@ -274,10 +274,10 @@
   .filter-group {
     display: flex;
     flex-direction: column;
-    gap: $spacing-sm $spacing-md;
+    gap: var(--spacing-sm) var(--spacing-md);
 
     @include tablet-down {
-      gap: $spacing-xs;
+      gap: var(--spacing-xs);
     }
 
     @include desktop {
@@ -289,25 +289,25 @@
     .group-label {
       font-size: inherit;
       font-weight: 400;
-      color: $color-text;
+      color: var(--color-text);
     }
 
     select {
       padding: $spacing-sm + 0.125rem $spacing-md - 0.125rem;
-      font-size: $font-size-base;
-      border: 1px solid $color-border-dark;
-      border-radius: $radius-md;
-      background: $color-bg-white;
-      color: $color-text;
+      font-size: var(--font-size-base);
+      border: 1px solid var(--color-border-dark);
+      border-radius: var(--radius-md);
+      background: var(--color-bg-white);
+      color: var(--color-text);
       cursor: pointer;
 
       @include tablet-down {
-        padding: $spacing-md; // Larger touch target for mobile
-        font-size: $font-size-lg; // Prevent iOS zoom
+        padding: var(--spacing-md); // Larger touch target for mobile
+        font-size: var(--font-size-lg); // Prevent iOS zoom
       }
 
       &:focus {
-        outline: 2px solid #0066cc;
+        outline: 2px solid var(--color-focus);
         outline-offset: 2px;
       }
     }
@@ -323,22 +323,22 @@
   .category-checkboxes {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-md $spacing-md;
-    border: 1px solid $color-border-dark;
-    border-radius: $radius-md;
-    background: $color-bg-white;
-    padding: $spacing-sm $spacing-md;
+    gap: var(--spacing-md) var(--spacing-md);
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-white);
+    padding: var(--spacing-sm) var(--spacing-md);
 
     @include desktop {
       grid-template-columns: repeat(3, 1fr);
-      gap: $spacing-md $spacing-xl;
+      gap: var(--spacing-md) var(--spacing-xl);
     }
   }
 
   .category-checkbox {
     display: flex;
     align-items: center;
-    gap: $spacing-xs;
+    gap: var(--spacing-xs);
     cursor: pointer;
     font-weight: normal;
 
@@ -346,7 +346,7 @@
       width: 1rem;
       height: 1rem;
       cursor: pointer;
-      accent-color: $color-link;
+      accent-color: var(--color-link);
     }
 
     span {
@@ -355,7 +355,7 @@
     }
 
     @include tablet-down {
-      padding: $spacing-xs 0;
+      padding: var(--spacing-xs) 0;
 
       span {
         white-space: normal; // Allow wrapping on narrow screens
@@ -370,7 +370,7 @@
       position: relative;
       display: flex;
       align-items: center;
-      gap: $spacing-xs;
+      gap: var(--spacing-xs);
     }
 
     .mode-toggle-info {
@@ -380,19 +380,19 @@
       width: 1rem;
       height: 1rem;
       border: 0;
-      background: $color-bg-white;
-      font-size: $font-size-sm;
+      background: var(--color-bg-white);
+      font-size: var(--font-size-sm);
       font-weight: 600;
-      color: $color-text-light;
+      color: var(--color-text-light);
       cursor: pointer;
       @include hover-transition(background);
     }
 
     .mode-toggle-info:hover,
     .mode-toggle-info:focus {
-      background: $color-bg-light;
-      color: $color-text;
-      border-color: $color-border;
+      background: var(--color-bg);
+      color: var(--color-text);
+      border-color: var(--color-border);
       outline: none;
     }
 
@@ -402,12 +402,12 @@
       left: 0;
       padding: $spacing-xs + 0.125rem $spacing-sm + 0.125rem;
       max-width: 20rem;
-      font-size: $font-size-sm;
+      font-size: var(--font-size-sm);
       line-height: 1.3;
-      color: $color-text;
-      background: $color-bg-white;
-      border: 1px solid $color-border-dark;
-      border-radius: $radius-md;
+      color: var(--color-text);
+      background: var(--color-bg-white);
+      border: 1px solid var(--color-border-dark);
+      border-radius: var(--radius-md);
       box-shadow: 0 2px 8px rgba(16, 24, 40, 0.15);
       z-index: 10;
     }
@@ -423,22 +423,22 @@
       margin-top: $spacing-lg + 0.125rem;
     }
     padding: $spacing-sm + 0.125rem $spacing-md + 0.25rem;
-    background: $color-bg-white;
-    border: 1px solid $color-border-dark;
-    border-radius: $radius-md;
+    background: var(--color-bg-white);
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--radius-md);
     cursor: pointer;
-    font-size: $font-size-base;
-    color: $color-text-light;
+    font-size: var(--font-size-base);
+    color: var(--color-text-light);
     @include hover-transition(background);
 
     @include tablet-down {
-      padding: $spacing-md; // Larger touch target for mobile
-      font-size: $font-size-lg; // Better visibility on mobile
+      padding: var(--spacing-md); // Larger touch target for mobile
+      font-size: var(--font-size-lg); // Better visibility on mobile
     }
 
     &:hover {
-      background: $color-bg-light;
-      color: $color-text;
+      background: var(--color-bg);
+      color: var(--color-text);
     }
 
     @include desktop {

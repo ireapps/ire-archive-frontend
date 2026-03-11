@@ -82,17 +82,17 @@
   @use "../styles/mixins" as *;
 
   .metadata {
-    margin: 0 0 $spacing-lg 0;
-    border-top: 1px solid $color-border;
-    border-bottom: 1px solid $color-border;
+    margin: 0 0 var(--spacing-lg) 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .meta-item {
     display: grid;
     grid-template-columns: 150px 1fr;
-    gap: $spacing-lg;
-    padding: $spacing-md 0;
-    border-bottom: 1px solid $color-bg-light;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--color-bg);
 
     &:last-child {
       border-bottom: none;
@@ -101,14 +101,14 @@
 
   dt {
     font-weight: 500;
-    color: $color-headline;
-    font-size: $font-size-base;
+    color: var(--color-headline);
+    font-size: var(--font-size-base);
   }
 
   dd {
     margin: 0;
-    color: $color-text-light;
-    font-size: $font-size-base;
+    color: var(--color-text-light);
+    font-size: var(--font-size-base);
 
     a {
       @include link-style;

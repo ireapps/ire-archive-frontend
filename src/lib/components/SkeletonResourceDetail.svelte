@@ -48,10 +48,10 @@
   .skeleton-download {
     background: linear-gradient(
       90deg,
-      #f0f0f0 0%,
-      #e8e8e8 20%,
-      #e8e8e8 40%,
-      #f0f0f0 100%
+      var(--color-skeleton-base) 0%,
+      var(--color-skeleton-shine) 20%,
+      var(--color-skeleton-shine) 40%,
+      var(--color-skeleton-base) 100%
     );
     background-size: 200% 100%;
     animation: shimmer 1.8s ease-in-out infinite;
@@ -62,17 +62,17 @@
   .skeleton-title {
     height: 2.5rem;
     width: 70%;
-    margin: 0 0 $spacing-lg 0;
+    margin: 0 0 var(--spacing-lg) 0;
   }
 
   /* Metadata section */
   .skeleton-metadata {
     display: flex;
     flex-direction: column;
-    gap: $spacing-sm;
-    margin-bottom: $spacing-xl;
-    padding-bottom: $spacing-xl;
-    border-bottom: 1px solid $color-border;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .skeleton-meta-item {
@@ -86,19 +86,19 @@
 
   /* Section containers */
   .skeleton-section {
-    margin-bottom: $spacing-2xl;
+    margin-bottom: var(--spacing-2xl);
   }
 
   .skeleton-section-title {
     height: 1.25rem;
     width: 25%;
-    margin-bottom: $spacing-md;
+    margin-bottom: var(--spacing-md);
   }
 
   .skeleton-content {
     display: flex;
     flex-direction: column;
-    gap: $spacing-sm;
+    gap: var(--spacing-sm);
   }
 
   .skeleton-line {
@@ -113,7 +113,7 @@
   .skeleton-download {
     height: 2.5rem;
     width: 100%;
-    margin-bottom: $spacing-sm;
+    margin-bottom: var(--spacing-sm);
   }
 
   @keyframes shimmer {

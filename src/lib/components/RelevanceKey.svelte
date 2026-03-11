@@ -18,17 +18,17 @@
   .relevance-legend {
     display: flex;
     align-items: center;
-    font-size: $font-size-sm;
-    color: $color-text-light;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
     flex-shrink: 0;
     margin-left: auto;
 
     @include mobile {
-      font-size: $font-size-xs;
+      font-size: var(--font-size-xs);
     }
 
     .legend-label {
-      margin-right: $spacing-xs;
+      margin-right: var(--spacing-xs);
 
       @include mobile {
         margin-right: 2px;

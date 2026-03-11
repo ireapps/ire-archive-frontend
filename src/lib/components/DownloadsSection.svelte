@@ -79,10 +79,10 @@
   @use "../styles/variables" as *;
 
   h3 {
-    font-size: $font-size-lg;
+    font-size: var(--font-size-lg);
     font-weight: 600;
-    margin: $spacing-lg 0 $spacing-sm 0;
-    color: $color-headline;
+    margin: var(--spacing-lg) 0 var(--spacing-sm) 0;
+    color: var(--color-headline);
   }
 
   .downloads {
@@ -93,11 +93,11 @@
     }
 
     li {
-      padding: $spacing-sm 0;
-      border-bottom: 1px solid $color-bg-light;
+      padding: var(--spacing-sm) 0;
+      border-bottom: 1px solid var(--color-bg);
       display: flex;
       flex-direction: column;
-      gap: $spacing-lg;
+      gap: var(--spacing-lg);
 
       &:last-child {
         border-bottom: none;
@@ -108,8 +108,8 @@
   .download-link {
     display: inline-block;
     border: 1px solid var(--color-link);
-    padding: $spacing-xs $spacing-md;
-    font-size: $font-size-base;
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-base);
     color: var(--color-link);
     text-decoration: none;
     align-self: flex-start;
@@ -117,11 +117,11 @@
 
     &::before {
       content: "↓ ";
-      margin-right: $spacing-xs;
+      margin-right: var(--spacing-xs);
     }
 
     &:hover {
-      background: $color-bg-light;
+      background: var(--color-bg);
       text-decoration: none;
     }
   }

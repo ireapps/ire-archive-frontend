@@ -77,7 +77,7 @@
     display: block;
     width: 2.5rem;
     height: 1.25rem;
-    background: var(--color-border-light, #ddd);
+    background: var(--color-border-light);
     border-radius: 1rem;
     transition: background-color 0.2s ease;
   }
@@ -89,7 +89,7 @@
     left: 0.125rem;
     width: 1rem;
     height: 1rem;
-    background: var(--color-bg-white, #fff);
+    background: var(--color-bg-white);
     border-radius: 50%;
     box-shadow: 0 1px 4px rgba(16, 24, 40, 0.12);
     transform: translate(0, -50%);
@@ -97,7 +97,7 @@
   }
 
   .switch input:checked + .switch-slider {
-    background: var(--color-accent, #1b7ae0);
+    background: var(--color-accent);
   }
 
   .switch input:checked + .switch-slider::before {
@@ -105,13 +105,13 @@
   }
 
   .switch input:focus-visible + .switch-slider {
-    outline: 2px solid #0066cc;
+    outline: 2px solid var(--color-focus);
     outline-offset: 2px;
   }
 
   .mode-status {
     font-size: 0.875rem;
-    color: var(--color-text-light, #666);
+    color: var(--color-text-light);
     min-width: 2rem;
   }
 

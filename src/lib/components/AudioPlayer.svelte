@@ -64,7 +64,7 @@
   @use '../styles/variables' as *;
 
   .audio-player {
-    margin-top: $spacing-md;
+    margin-top: var(--spacing-md);
     position: relative;
   }
 
@@ -79,32 +79,32 @@
 
   .audio-loading {
     position: absolute;
-    top: $spacing-md;
+    top: var(--spacing-md);
     left: 0;
     right: 0;
     bottom: 0;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    color: $color-text-light;
+    color: var(--color-text-light);
 
     p {
       margin: 0;
-      font-size: $font-size-sm;
+      font-size: var(--font-size-sm);
     }
   }
 
   .audio-error {
-    padding: $spacing-sm 0;
-    color: $color-text-light;
+    padding: var(--spacing-sm) 0;
+    color: var(--color-text-light);
 
     p {
-      margin: $spacing-sm 0;
-      font-size: $font-size-base;
+      margin: var(--spacing-sm) 0;
+      font-size: var(--font-size-base);
     }
 
     a {
-      color: $color-link;
+      color: var(--color-link);
       text-decoration: underline;
 
       &:hover {
@@ -114,7 +114,7 @@
   }
 
   .audio-error-hint {
-    font-size: $font-size-sm;
-    margin-top: $spacing-md;
+    font-size: var(--font-size-sm);
+    margin-top: var(--spacing-md);
   }
 </style>

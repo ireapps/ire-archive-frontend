@@ -50,10 +50,10 @@
 
   .similar-resources {
     h3 {
-      font-size: $font-size-lg;
+      font-size: var(--font-size-lg);
       font-weight: 600;
-      margin: $spacing-lg 0 $spacing-md 0;
-      color: $color-headline;
+      margin: var(--spacing-lg) 0 var(--spacing-md) 0;
+      color: var(--color-headline);
     }
   }
 
@@ -62,8 +62,8 @@
     flex-direction: column;
 
     :global(.resource-card) {
-      padding: $spacing-lg 0;
-      border-bottom: 1px solid $color-border;
+      padding: var(--spacing-lg) 0;
+      border-bottom: 1px solid var(--color-border);
 
       &:first-of-type {
         padding-top: 0;
@@ -76,11 +76,11 @@
   }
 
   .error-message {
-    padding: $spacing-lg 0;
+    padding: var(--spacing-lg) 0;
 
     p {
-      color: $color-text-light;
-      font-size: $font-size-sm;
+      color: var(--color-text-light);
+      font-size: var(--font-size-sm);
       font-style: italic;
     }
   }

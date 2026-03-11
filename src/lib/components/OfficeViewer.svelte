@@ -26,9 +26,9 @@
   @use '../styles/variables' as *;
 
   .office-viewer {
-    border: 1px solid $color-border;
-    padding: $spacing-md;
-    background: $color-bg-light;
+    border: 1px solid var(--color-border);
+    padding: var(--spacing-md);
+    background: var(--color-bg);
 
     iframe {
       display: block;

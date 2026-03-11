@@ -20,13 +20,13 @@
     @include mixins.button-reset;
     @include vars.hover-transition(background);
     border: 1px solid var(--color-link);
-    padding: vars.$spacing-xs vars.$spacing-md;
-    font-size: vars.$font-size-sm;
-    margin-bottom: vars.$spacing-md;
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-md);
     color: var(--color-link);
 
     &:hover {
-      background: vars.$color-bg-light;
+      background: var(--color-bg);
     }
   }
 </style>

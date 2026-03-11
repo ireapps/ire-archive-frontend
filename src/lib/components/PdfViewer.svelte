@@ -60,10 +60,10 @@
   @use '../styles/variables' as *;
 
   .pdf-viewer {
-    border: 1px solid $color-border-dark;
-    border-radius: $radius-md;
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--radius-md);
     overflow: hidden;
-    background: $color-bg-light;
+    background: var(--color-bg);
     position: relative;
 
     @include tablet {
@@ -76,7 +76,7 @@
     height: 1100px; /* Optimized for 8.5x11 documents at ~850px width */
     border: none;
     display: block;
-    background: $color-bg-white;
+    background: var(--color-bg-white);
 
     &.loading {
       opacity: 0;
@@ -96,8 +96,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: $color-bg-light;
-    color: $color-text-light;
+    background: var(--color-bg);
+    color: var(--color-text-light);
 
     p {
       margin: 0;
@@ -106,23 +106,23 @@
   }
 
   .pdf-error {
-    padding: $spacing-2xl;
+    padding: var(--spacing-2xl);
     text-align: center;
-    color: $color-text-light;
+    color: var(--color-text-light);
 
     p {
-      margin: $spacing-sm 0;
+      margin: var(--spacing-sm) 0;
       font-size: $font-size-md + 0.0125rem;
     }
 
     a {
-      color: #0066cc;
+      color: var(--color-link);
       text-decoration: underline;
     }
   }
 
   .pdf-error-hint {
     font-size: $font-size-md - 0.0375rem;
-    margin-top: $spacing-lg;
+    margin-top: var(--spacing-lg);
   }
 </style>

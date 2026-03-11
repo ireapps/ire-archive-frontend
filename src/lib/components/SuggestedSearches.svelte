@@ -144,19 +144,19 @@
   @use "../styles/variables" as *;
 
   .suggested-searches {
-    margin-top: $spacing-md;
+    margin-top: var(--spacing-md);
     @include tablet-down {
-      margin-top: $spacing-sm;
+      margin-top: var(--spacing-sm);
     }
   }
 
   .suggestions-content {
-    color: $color-text-light;
-    font-size: $font-size-base;
+    color: var(--color-text-light);
+    font-size: var(--font-size-base);
     line-height: 1.5;
     margin: 0;
     @include tablet-down {
-      font-size: $font-size-sm;
+      font-size: var(--font-size-sm);
     }
   }
 

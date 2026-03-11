@@ -31,16 +31,16 @@
     gap: $spacing-md - 0.125rem;
 
     @include tablet-down {
-      gap: $spacing-sm;
+      gap: var(--spacing-sm);
     }
   }
 
   input {
     flex: 1;
-    padding: $spacing-lg $spacing-md;
-    font-size: $font-size-lg;
+    padding: var(--spacing-lg) var(--spacing-md);
+    font-size: var(--font-size-lg);
     border: 1px solid $color-border-darker;
-    background: $color-bg-white;
+    background: var(--color-bg-white);
     @include hover-transition(border-color);
 
     &:focus {
@@ -50,14 +50,14 @@
     }
 
     @include tablet-down {
-      font-size: $font-size-base;
-      padding: $spacing-md $spacing-sm;
+      font-size: var(--font-size-base);
+      padding: var(--spacing-md) var(--spacing-sm);
     }
   }
 
   button {
     padding: $spacing-lg $spacing-lg + 0.25rem;
-    font-size: $font-size-lg;
+    font-size: var(--font-size-lg);
     background: var(--color-link);
     color: white;
     border: 1px solid var(--color-link);
@@ -66,7 +66,7 @@
     font-weight: 500;
     display: flex;
     align-items: center;
-    gap: $spacing-sm;
+    gap: var(--spacing-sm);
     white-space: nowrap;
 
     &:hover:not(:disabled) {
@@ -75,16 +75,16 @@
     }
 
     &:disabled {
-      background: $color-text-lighter;
-      border-color: $color-text-lighter;
+      background: var(--color-text-muted);
+      border-color: var(--color-text-muted);
       cursor: not-allowed;
     }
 
     @include tablet-down {
-      padding: $spacing-lg $spacing-md;
-      padding: $spacing-md;
+      padding: var(--spacing-lg) var(--spacing-md);
+      padding: var(--spacing-md);
       gap: 0;
-      font-size: $font-size-base;
+      font-size: var(--font-size-base);
     }
   }
 </style>

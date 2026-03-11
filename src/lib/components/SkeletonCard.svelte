@@ -32,10 +32,10 @@
   .skeleton-badge {
     background: linear-gradient(
       90deg,
-      #f0f0f0 0%,
-      #e8e8e8 20%,
-      #e8e8e8 40%,
-      #f0f0f0 100%
+      var(--color-skeleton-base) 0%,
+      var(--color-skeleton-shine) 20%,
+      var(--color-skeleton-shine) 40%,
+      var(--color-skeleton-base) 100%
     );
     background-size: 200% 100%;
     animation: shimmer 1.8s ease-in-out infinite;
@@ -45,33 +45,33 @@
   .skeleton-title {
     height: 1.5rem;
     width: 65%;
-    margin-bottom: $spacing-md;
+    margin-bottom: var(--spacing-md);
 
     .compact & {
       height: 1.125rem;
       width: 75%;
-      margin-bottom: $spacing-sm;
+      margin-bottom: var(--spacing-sm);
     }
   }
 
   .skeleton-byline {
     height: 0.875rem;
     width: 35%;
-    margin-bottom: $spacing-md;
+    margin-bottom: var(--spacing-md);
     opacity: 0.7;
 
     .compact & {
       height: 0.75rem;
       width: 30%;
-      margin-bottom: $spacing-sm;
+      margin-bottom: var(--spacing-sm);
     }
   }
 
   .skeleton-description {
-    margin-bottom: $spacing-md;
+    margin-bottom: var(--spacing-md);
 
     .compact & {
-      margin-bottom: $spacing-sm;
+      margin-bottom: var(--spacing-sm);
     }
   }
 

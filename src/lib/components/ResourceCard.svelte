@@ -161,7 +161,7 @@
 
     &.compact {
       h4 {
-        font-size: $font-size-md;
+        font-size: var(--font-size-md);
       }
     }
   }
@@ -170,20 +170,20 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: $spacing-sm;
-    margin-bottom: $spacing-xs;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
   }
 
   .year-badge {
     flex-shrink: 0;
     display: inline-flex;
     align-items: center;
-    padding: $spacing-xs - 0.125rem $spacing-sm;
-    background-color: $color-badge-bg;
-    color: $color-badge-text;
-    font-size: $font-size-sm;
+    padding: $spacing-xs - 0.125rem var(--spacing-sm);
+    background-color: var(--color-badge-bg);
+    color: var(--color-badge-text);
+    font-size: var(--font-size-sm);
     font-weight: 500;
-    border-radius: $radius-sm;
+    border-radius: var(--radius-sm);
     white-space: nowrap;
     height: fit-content;
   }
@@ -198,8 +198,8 @@
   .relevance-score {
     display: inline-flex;
     align-items: center;
-    color: $color-text-light;
-    font-size: $font-size-xs;
+    color: var(--color-text-light);
+    font-size: var(--font-size-xs);
     font-weight: 400;
     white-space: nowrap;
     margin-left: auto;
@@ -207,9 +207,9 @@
   }
 
   .content-preview {
-    color: $color-text;
+    color: var(--color-text);
     line-height: 1.6;
-    font-size: $font-size-base;
-    margin-bottom: $spacing-sm;
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-sm);
   }
 </style>

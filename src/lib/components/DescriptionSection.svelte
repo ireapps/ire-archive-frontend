@@ -19,16 +19,16 @@
   @use '../styles/variables' as *;
 
   h3 {
-    font-size: $font-size-lg;
+    font-size: var(--font-size-lg);
     font-weight: 600;
-    margin: $spacing-lg 0 $spacing-sm 0;
-    color: $color-headline;
+    margin: var(--spacing-lg) 0 var(--spacing-sm) 0;
+    color: var(--color-headline);
   }
 
   .description p {
-    color: $color-text;
+    color: var(--color-text);
     line-height: 1.6;
     margin: 0;
-    font-size: $font-size-base;
+    font-size: var(--font-size-base);
   }
 </style>

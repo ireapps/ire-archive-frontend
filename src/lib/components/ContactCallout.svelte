@@ -9,19 +9,19 @@
   @use '../styles/variables' as *;
 
   .contact-callout {
-    margin: $spacing-lg 0 0 0;
-    padding: $spacing-lg 0;
-    border-bottom: 1px solid $color-border;
+    margin: var(--spacing-lg) 0 0 0;
+    padding: var(--spacing-lg) 0;
+    border-bottom: 1px solid var(--color-border);
 
     p {
       margin: 0;
-      font-size: $font-size-base;
-      color: $color-text-light;
+      font-size: var(--font-size-base);
+      color: var(--color-text-light);
       line-height: 1.6;
     }
 
     a {
-      color: $color-link;
+      color: var(--color-link);
       text-decoration: none;
 
       &:hover {
