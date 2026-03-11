@@ -79,7 +79,6 @@
 
 <style lang="scss">
   @use "../../lib/styles/variables" as *;
-  @use "sass:color";
 
   .login-container {
     display: flex;
@@ -101,7 +100,7 @@
     width: 100%;
 
     @include mobile {
-      padding: var(--spacing-xl) $spacing-lg * 1.2;
+      padding: var(--spacing-xl) calc(var(--spacing-lg) * 1.2);
     }
   }
 
@@ -140,21 +139,21 @@
     text-align: left;
 
     // Mobile-first: base size for smallest screens (0-400px)
-    font-size: $font-size-3xl * 0.85;
+    font-size: calc(var(--font-size-3xl) * 0.85);
 
     // Small screens (401px-500px)
     @media (min-width: 401px) and (max-width: 500px) {
-      font-size: $font-size-4xl * 0.75;
+      font-size: calc(var(--font-size-4xl) * 0.75);
     }
 
     // Tablet range (501px-767px)
     @media (min-width: 501px) and (max-width: 767px) {
-      font-size: $font-size-4xl * 0.9;
+      font-size: calc(var(--font-size-4xl) * 0.9);
     }
 
     // Desktop (768px-959px)
     @include desktop {
-      font-size: $font-size-4xl * 1.1;
+      font-size: calc(var(--font-size-4xl) * 1.1);
     }
   }
 
@@ -191,7 +190,7 @@
   .notice.error {
     background: var(--color-error);
     color: white;
-    border: 1px solid color.adjust($color-error, $lightness: -10%);
+    border: 1px solid var(--color-error-dark);
   }
 
   .notice a {
@@ -225,7 +224,7 @@
     }
 
     &:hover:not(:disabled) {
-      background: color.adjust($color-headline, $lightness: 20%);
+      background: var(--color-headline-hover, #333);
     }
 
     &:disabled {

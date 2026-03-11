@@ -2,38 +2,8 @@
  * SCSS Variables and Mixins
  * Shared across all components
  */
-@use "sass:color";
 
-// Colors (only those still needed for SCSS functions, arithmetic, or mixin params)
-// All other colors are defined as CSS custom properties in app.scss :root
-$color-headline: #000;
-$color-text-light: #666;
-$color-border: #e0e0e0;
-$color-border-dark: #ccc;
-$color-border-darker: #999;
-$color-error: #d32f2f;
-
-// Spacing
-$spacing-xs: 0.25rem;
-$spacing-sm: 0.5rem;
-$spacing-md: 0.75rem;
-$spacing-lg: 1rem;
-$spacing-xl: 1.5rem;
-$spacing-2xl: 2rem;
-$spacing-3xl: 2.5rem;
-
-// Font sizes
-$font-size-xs: 0.6875rem; // 11px
-$font-size-sm: 0.8125rem; // 13px
-$font-size-base: 0.875rem; // 14px
-$font-size-md: 0.9375rem; // 15px
-$font-size-lg: 1rem; // 16px
-$font-size-xl: 1.1rem; // ~17.6px
-$font-size-2xl: 1.2rem; // ~19px
-$font-size-3xl: 2rem; // 32px
-$font-size-4xl: 2.75rem; // 40px
-$font-size-5xl: 3.25rem; // 52px
-$font-size-6xl: 4rem; // 64px
+// All colors, spacing, and font sizes are defined as CSS custom properties in app.scss :root
 
 // Breakpoints
 $breakpoint-mobile: 25rem; // 400px
@@ -46,7 +16,7 @@ $breakpoint-wide: 60rem; // 960px
   transition: $property var(--transition-fast);
 }
 
-@mixin focus-outline($color: $color-headline) {
+@mixin focus-outline($color: var(--color-headline)) {
   outline: 2px solid $color;
   outline-offset: 2px;
 }

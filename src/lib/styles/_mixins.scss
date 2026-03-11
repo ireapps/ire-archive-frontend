@@ -1,7 +1,5 @@
 // Shared SCSS mixins for common UI patterns
 
-@use 'variables' as *;
-
 // Reset button to plain styling (removes browser defaults)
 @mixin button-reset {
   background: none;
@@ -34,7 +32,7 @@
 }
 
 // Card/item container with border separator
-@mixin card-item($padding: $spacing-lg) {
+@mixin card-item($padding: var(--spacing-lg)) {
   padding: $padding 0;
   border-bottom: 1px solid var(--color-border);
 
@@ -61,7 +59,7 @@
 }
 
 // Card title styling
-@mixin card-title($font-size: $font-size-xl) {
+@mixin card-title($font-size: var(--font-size-xl)) {
   margin: 0 0 var(--spacing-xs) 0;
   font-size: $font-size;
   font-weight: 700;
