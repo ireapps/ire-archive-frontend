@@ -24,14 +24,17 @@
   let currentPage = $state(1);
   let inputQuery = $state(data.query);
 
-  // Reset pagination and focus when search changes
+  // Reset pagination and focus when any search parameter changes.
+  // Svelte 5 effects re-run when reactive values accessed inside them change.
+  // We read data.filters, data.sortBy, and data.searchMode here so the effect
+  // re-runs when these change (e.g. when the user updates filters or sort order),
+  // even though the reset logic itself only needs data.results and data.query.
   $effect(() => {
-    // Track data properties that trigger reset (access all fields that should cause a re-run)
     results = data.results || [];
     currentPage = 1;
     focusedResultIndex = -1;
     inputQuery = data.query;
-    // Also track filters/sort/mode so the effect re-runs when they change
+    // Read-only accesses to register these as reactive dependencies:
     void data.filters;
     void data.sortBy;
     void data.searchMode;
