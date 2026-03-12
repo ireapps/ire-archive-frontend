@@ -15,9 +15,11 @@
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:firefox": "playwright test --project=firefox",
     "test:e2e:preview": "TEST_MODE=preview playwright test",
-    "test:e2e:preview:ui": "TEST_MODE=preview playwright test --ui"
+    "test:e2e:preview:ui": "TEST_MODE=preview playwright test --ui",
+    "test:lighthouse": "lhci autorun"
   },
   "devDependencies": {
+    "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.57.0",
     "@sveltejs/adapter-static": "^3.0.10",
     "@sveltejs/kit": "^2.48.5",
