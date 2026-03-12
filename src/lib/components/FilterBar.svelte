@@ -122,7 +122,7 @@
       <div class="filter-group category-group">
         <span class="group-label">Categories</span>
         <div class="category-checkboxes">
-          {#each categories as category}
+          {#each categories as category (category)}
             <label class="category-checkbox">
               <input
                 type="checkbox"

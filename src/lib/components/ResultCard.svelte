@@ -18,7 +18,6 @@
   score={result.score}
   size="normal"
   showDescription={true}
-  showContent={true}
   {searchMode}
   {showScore}
 />

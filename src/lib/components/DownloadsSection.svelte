@@ -25,7 +25,7 @@
   <section class="downloads">
     <h3>Downloads</h3>
     <ul>
-      {#each downloads as download}
+      {#each downloads as download (download.id)}
         <li>
           <a
             href={download.url}

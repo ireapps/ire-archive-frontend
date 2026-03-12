@@ -19,7 +19,7 @@
 {#if parts.length > 0}
   <div class="metadata-line">
     <div class="metadata-line__text">
-      {#each parts as part, i}
+      {#each parts as part, i (i)}
         {#if i > 0}<span class="metadata-line__separator"> • </span>{/if}
         <span>{part}</span>
       {/each}

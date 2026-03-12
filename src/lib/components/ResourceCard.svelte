@@ -33,7 +33,6 @@
     };
     size?: "normal" | "compact";
     showDescription?: boolean;
-    showContent?: boolean;
     score?: number;
     searchMode?: SearchMode;
     showScore?: boolean;
@@ -43,7 +42,6 @@
     resource,
     size = "normal",
     showDescription = false,
-    showContent = false,
     score,
     searchMode = "hybrid",
     showScore = true,
@@ -132,6 +130,7 @@
 
   {#if truncatedDescription}
     <div class="content-preview">
+      <!-- eslint-disable-next-line svelte/no-at-html-tags -- content comes from trusted API -->
       {@html formatDescription(truncatedDescription)}
     </div>
   {/if}

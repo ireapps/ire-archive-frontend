@@ -28,7 +28,7 @@ export interface ResourceMetadata {
   contest_entry_status?: string;
   downloads?: Download[];
   speakers?: string[];
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export interface SearchResult {

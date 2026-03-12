@@ -8,7 +8,7 @@
   import { FILTER_OPTIONS } from "$lib/config";
   import { focusSearchInput } from "$lib/utils/dom";
 
-  import type { SearchResult, SearchMode } from "$lib/types";
+  import type { SearchResult } from "$lib/types";
 
   // Get data from load function
   let { data } = $props();
@@ -26,13 +26,15 @@
 
   // Reset pagination and focus when search changes
   $effect(() => {
-    // Track data properties that trigger reset
-    const { query, filters, sortBy, searchMode, results: newResults } = data;
-
-    results = newResults || [];
+    // Track data properties that trigger reset (access all fields that should cause a re-run)
+    results = data.results || [];
     currentPage = 1;
     focusedResultIndex = -1;
-    inputQuery = query;
+    inputQuery = data.query;
+    // Also track filters/sort/mode so the effect re-runs when they change
+    void data.filters;
+    void data.sortBy;
+    void data.searchMode;
   });
 
   async function loadMoreResults() {
