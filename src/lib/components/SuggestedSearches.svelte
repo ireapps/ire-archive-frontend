@@ -176,14 +176,12 @@
     @include button-reset;
     color: var(--color-link);
     font-size: inherit;
-    text-decoration: none;
-    @include hover-transition(text-decoration);
+    text-decoration: underline;
     display: inline;
     padding: 0;
     cursor: pointer;
 
     &:hover {
-      text-decoration: underline;
       color: var(--color-link-hover);
     }
 

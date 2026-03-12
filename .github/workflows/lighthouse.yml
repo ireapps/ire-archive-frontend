@@ -1,0 +1,46 @@
+name: Lighthouse CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lighthouse:
+    name: Lighthouse audits
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+        env:
+          VITE_AUTH_BYPASS: "true"
+          VITE_API_BASE_URL: "http://localhost:8000"
+
+      - name: Run Lighthouse CI
+        run: npx lhci autorun
+        env:
+          VITE_AUTH_BYPASS: "true"
+          VITE_API_BASE_URL: "http://localhost:8000"
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/reports/
+          if-no-files-found: warn
+          retention-days: 30

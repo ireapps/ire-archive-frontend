@@ -187,10 +187,10 @@
 
   .notice a {
     color: var(--color-link);
-    text-decoration: none;
+    text-decoration: underline;
 
     &:hover {
-      text-decoration: underline;
+      color: var(--color-link-hover);
     }
   }
 
@@ -260,10 +260,10 @@
 
     a {
       color: var(--color-link);
-      text-decoration: none;
+      text-decoration: underline;
 
       &:hover {
-        text-decoration: underline;
+        color: var(--color-link-hover);
       }
     }
   }

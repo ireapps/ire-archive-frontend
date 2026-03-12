@@ -153,8 +153,6 @@
   <meta name="twitter:description" content={SITE_METADATA.description} />
   <meta name="twitter:image" content={SITE_METADATA.image} />
   <meta name="twitter:image:alt" content="IRE Logo" />
-
-  <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
 <BetaBanner />

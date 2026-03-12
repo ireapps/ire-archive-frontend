@@ -19,6 +19,7 @@ vite.config.d.ts
 coverage/
 playwright-report/
 test-results/
+.lighthouseci/
 
 # Editor
 .DS_Store
