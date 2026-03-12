@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
-  import { base } from "$app/paths";
 
   let {
     count = 3,
@@ -128,14 +127,14 @@
   <p class="suggestions-content">
     <span class="hide-mobile">Not sure where to start?</span>
     <span class="show-mobile">Stumped?</span>
-    Try{" "}
-    {#each selectedSuggestions as suggestion, i}
+    Try
+    {#each selectedSuggestions as suggestion, i (i)}
       <a
         href="/search?q={encodeURIComponent(suggestion)}"
         data-sveltekit-preload-data="hover"
         class="suggestion-link"
         aria-label={`Search for ${suggestion}`}>{suggestion}</a
-      >{#if i < selectedSuggestions.length - 2},{" "}{/if}{#if i === selectedSuggestions.length - 2}{" "}or{" "}{/if}
+      >{#if i < selectedSuggestions.length - 2}, {/if}{#if i === selectedSuggestions.length - 2} or {/if}
     {/each}.
   </p>
 </div>

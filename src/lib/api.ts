@@ -8,7 +8,6 @@ import { browser } from "$app/environment";
 import { API_ENDPOINTS, SEARCH_CONFIG } from "./config";
 import type {
   SearchResponse,
-  SearchError,
   SearchFilters,
   ResourceDetail,
   SimilarResourcesResponse,
@@ -193,7 +192,14 @@ export async function searchDocuments(
   }
 
   try {
-    const requestBody: any = {
+    const requestBody: {
+      query: string;
+      limit: number;
+      offset: number;
+      sort_by: string;
+      categories?: string[];
+      search_mode?: string;
+    } = {
       query: query ? query.trim() : "",
       limit: limit,
       offset: offset,

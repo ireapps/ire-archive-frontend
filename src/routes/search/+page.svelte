@@ -8,7 +8,7 @@
   import { FILTER_OPTIONS } from "$lib/config";
   import { focusSearchInput } from "$lib/utils/dom";
 
-  import type { SearchResult, SearchMode } from "$lib/types";
+  import type { SearchResult } from "$lib/types";
 
   // Get data from load function
   let { data } = $props();
@@ -24,15 +24,20 @@
   let currentPage = $state(1);
   let inputQuery = $state(data.query);
 
-  // Reset pagination and focus when search changes
+  // Reset pagination and focus when any search parameter changes.
+  // Svelte 5 effects re-run when reactive values accessed inside them change.
+  // We read data.filters, data.sortBy, and data.searchMode here so the effect
+  // re-runs when these change (e.g. when the user updates filters or sort order),
+  // even though the reset logic itself only needs data.results and data.query.
   $effect(() => {
-    // Track data properties that trigger reset
-    const { query, filters, sortBy, searchMode, results: newResults } = data;
-
-    results = newResults || [];
+    results = data.results || [];
     currentPage = 1;
     focusedResultIndex = -1;
-    inputQuery = query;
+    inputQuery = data.query;
+    // Read-only accesses to register these as reactive dependencies:
+    void data.filters;
+    void data.sortBy;
+    void data.searchMode;
   });
 
   async function loadMoreResults() {
