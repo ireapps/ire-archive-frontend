@@ -12,7 +12,8 @@
       "numberOfRuns": 3,
       "settings": {
         "chromeFlags": "--no-sandbox --disable-dev-shm-usage",
-        "onlyCategories": ["performance", "accessibility", "best-practices", "seo"]
+        "onlyCategories": ["performance", "accessibility", "best-practices", "seo"],
+        "output": ["html", "json"]
       }
     },
     "assert": {
@@ -27,8 +28,13 @@
       }
     },
     "upload": {
+<<<<<<< HEAD
       "target": "temporary-public-storage",
       "outputDir": ".lighthouseci/"
+=======
+      "target": "filesystem",
+      "outputDir": ".lighthouseci/reports"
+>>>>>>> 1691f220bb29b2c005a76beecb2d51af5be789e0
     }
   }
 }
