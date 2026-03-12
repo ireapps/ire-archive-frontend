@@ -84,7 +84,7 @@ export class AuthState {
       this.errorType = "invalid";
       this.isLoading = false;
       return false;
-    } catch (err) {
+    } catch (_err) {
       // Network failure - API unreachable
       this.user = null;
       this.error =
@@ -164,7 +164,7 @@ export class AuthState {
       this.error = null;
       this.errorType = null;
       goto("/login");
-    } catch (err) {
+    } catch (_err) {
       // IMPORTANT: Don't silently ignore logout failures
       this.error =
         "Failed to log out. Your session may still be active on the server.";
@@ -211,4 +211,4 @@ export function getAuth(): AuthState {
 // Export singleton for convenience
 // IMPORTANT: Use getAuth() to ensure we return the SAME instance
 // (not a separate instance created at module load time)
-export const auth = browser ? getAuth() : (null as any);
+export const auth = browser ? getAuth() : (null as unknown as AuthState);

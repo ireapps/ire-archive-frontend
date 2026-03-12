@@ -4,7 +4,7 @@ type ResourceWithMetadata = {
   metadata?: {
     authors?: string;
     affiliations?: string;
-    resource_year?: number;
+    resource_year?: number | null;
     conference?: string;
     year?: string;
   };

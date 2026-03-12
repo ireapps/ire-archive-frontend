@@ -36,7 +36,7 @@ export const load: PageLoad = async ({ url, fetch }) => {
   }
 
   // Check if we have anything to search for
-  const hasQuery = query && query.trim().length > 0;
+  const hasQuery = query.trim().length > 0;
   const hasFilters = categories.length > 0;
 
   // Only search if we have query or filters

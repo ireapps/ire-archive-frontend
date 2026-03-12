@@ -271,7 +271,7 @@ export function getDisplayTitle(
     published?: string;
     date_created?: string;
     date_updated?: string;
-    [key: string]: any;
+    [key: string]: unknown;
   }
 ): string {
   // If title is not numeric-only, return as-is

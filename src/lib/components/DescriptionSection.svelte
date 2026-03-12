@@ -11,6 +11,7 @@
 {#if description}
   <section class="description">
     <h3>Description</h3>
+    <!-- eslint-disable-next-line svelte/no-at-html-tags -- content comes from trusted API -->
     <p>{@html formatDescription(description)}</p>
   </section>
 {/if}

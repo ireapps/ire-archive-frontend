@@ -164,7 +164,7 @@ describe("API Client", () => {
     });
 
     it("redirects to login with returnTo on 401", async () => {
-      (appEnv as any).browser = true;
+      (appEnv as { browser: boolean }).browser = true;
       const originalLocation = window.location;
       Object.defineProperty(window, "location", {
         value: {

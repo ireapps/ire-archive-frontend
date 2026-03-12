@@ -1,9 +1,9 @@
 <script lang="ts">
-  import type { SearchResult, SearchMode } from "../types";
+  import type { SearchResult, SearchMode, SearchFilters } from "../types";
   import ResultCard from "./ResultCard.svelte";
   import SkeletonCard from "./SkeletonCard.svelte";
   import RelevanceKey from "./RelevanceKey.svelte";
-  import { formatNumber, formatCount } from "../utils";
+  import { formatCount } from "../utils";
 
   interface SearchData {
     results: SearchResult[];
@@ -11,7 +11,7 @@
     hasMore: boolean;
     visibleCount: number;
     query: string;
-    filters: any;
+    filters: SearchFilters;
     searchMode: SearchMode;
     hasQuery: boolean;
     hasFilters: boolean;
@@ -35,7 +35,6 @@
   // Derive convenience variables from data
   let results = $derived(data.results);
   let totalResults = $derived(data.total);
-  let hasMoreResults = $derived(data.hasMore);
   let query = $derived(data.query);
   let searchMode = $derived(data.searchMode);
   let hasQuery = $derived(data.hasQuery);
