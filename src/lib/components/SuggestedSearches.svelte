@@ -134,7 +134,7 @@
         data-sveltekit-preload-data="hover"
         class="suggestion-link"
         aria-label={`Search for ${suggestion}`}>{suggestion}</a
-      >{#if i < selectedSuggestions.length - 2}, {/if}{#if i === selectedSuggestions.length - 2} or {/if}
+      >{#if i < selectedSuggestions.length - 2}{', '}{/if}{#if i === selectedSuggestions.length - 2}{' or '}{/if}
     {/each}.
   </p>
 </div>
