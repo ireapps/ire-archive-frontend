@@ -66,7 +66,7 @@ Set `VITE_API_BASE_URL` in your `.env.development` file to point at a compatible
 VITE_API_BASE_URL=http://localhost:8000
 ```
 
-The backend must implement the endpoints described in [docs/API_CONTRACT.md](docs/API_CONTRACT.md). The reference implementation is the FastAPI backend in [ireapps/archive.ire.org](https://github.com/ireapps/archive.ire.org).
+The backend must implement the endpoints described in [docs/API_CONTRACT.md](docs/API_CONTRACT.md). The reference implementation is the FastAPI backend in [ireapps/ire-archive-backend](https://github.com/ireapps/ire-archive-backend).
 
 **CORS:** The backend must include your frontend's origin in its CORS allowed origins. The reference backend supports runtime-configurable origins via the `ADDITIONAL_ALLOWED_ORIGINS` env var.
 
