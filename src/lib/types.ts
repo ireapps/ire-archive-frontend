@@ -19,9 +19,11 @@ export interface ResourceMetadata {
   tags?: string[];
   keywords?: string[];
   conference?: string;
+  conference_year?: string;
   year?: string;
   published?: string;
   resource_year?: number | null;
+  year_computed?: number | null;
   date_created?: string;
   date_updated?: string;
   contest_name?: string;

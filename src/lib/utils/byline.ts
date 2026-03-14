@@ -5,7 +5,9 @@ type ResourceWithMetadata = {
     authors?: string;
     affiliations?: string;
     resource_year?: number | null;
+    year_computed?: number | null;
     conference?: string;
+    conference_year?: string;
     year?: string;
   };
 };
@@ -34,7 +36,11 @@ export function getAffiliations(resource: ResourceWithMetadata): string | null {
  * Get resource year or null
  */
 export function getYear(resource: ResourceWithMetadata): number | null {
-  return resource.metadata?.resource_year ?? null;
+  return (
+    resource.metadata?.year_computed ??
+    resource.metadata?.resource_year ??
+    null
+  );
 }
 
 /**
@@ -46,9 +52,8 @@ export function getConferenceYear(
   const conferenceRaw = resource.metadata?.conference
     ? stripHtml(resource.metadata.conference).trim()
     : "";
-  const yearRaw = resource.metadata?.year
-    ? stripHtml(resource.metadata.year).trim()
-    : "";
+  const yearSource = resource.metadata?.conference_year ?? resource.metadata?.year;
+  const yearRaw = yearSource ? stripHtml(yearSource).trim() : "";
 
   const conference =
     conferenceRaw.toLowerCase() === "not listed" ? "" : conferenceRaw;
