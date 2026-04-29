@@ -34,7 +34,7 @@
     <div class="meta-item">
       <dt>Category</dt>
       <dd>
-        <a href="/search?categories={metadata.category}">
+        <a href="/search?categories={encodeURIComponent(metadata.category)}">
           {capFirst(metadata.category)}
         </a>
       </dd>
