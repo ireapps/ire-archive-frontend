@@ -4,8 +4,8 @@ test.describe("Category Link", () => {
   test("should navigate to search with correct category filter when clicking category link", async ({
     page,
   }) => {
-    // Visit a resource detail page (AUTH_BYPASS is enabled in playwright config)
-    await page.goto("/resource/66cbe79d-c198-fbe9-7690-85f49502e63a");
+    // Visit a mock resource detail page (AUTH_BYPASS uses mock-investigative-1)
+    await page.goto("/resource/mock-investigative-1");
 
     // Wait for the resource detail to load
     await expect(page.locator(".resource-detail")).toBeVisible({
@@ -13,20 +13,14 @@ test.describe("Category Link", () => {
     });
 
     // Find the category link in the metadata section
-    const categoryLink = page.locator(".metadata dt", { hasText: "Category" })
-      .locator("..")
-      .locator("a");
+    const categoryLink = page.locator(".metadata dd a", { hasText: "Tipsheet" });
     await expect(categoryLink).toBeVisible();
 
-    // Get the category text and click the link
-    const categoryText = await categoryLink.innerText();
+    // Click the category link
     await categoryLink.click();
 
     // Verify we navigated to the search page with the correct categories param
-    await expect(page).toHaveURL(/\/search\?categories=/);
-    await expect(page).toHaveURL(
-      new RegExp(`categories=${encodeURIComponent(categoryText.toLowerCase())}`)
-    );
+    await expect(page).toHaveURL(/\/search\?categories=tipsheet/);
 
     // Verify the search page loaded
     await expect(page.locator(".search-page")).toBeVisible();
