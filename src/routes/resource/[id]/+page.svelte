@@ -178,7 +178,11 @@
       <h1>{displayTitle}</h1>
       <MetadataSection metadata={resource.metadata} />
       <DescriptionSection description={resource.metadata.description} />
-      <DownloadsSection downloads={resource.metadata.downloads || []} />
+      <DownloadsSection
+        downloads={resource.metadata.downloads || []}
+        resourceId={resource.vector_id}
+        resourceTitle={displayTitle}
+      />
     </article>
     <SimilarResources
       resources={similarResources}
