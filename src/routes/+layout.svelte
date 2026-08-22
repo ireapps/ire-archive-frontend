@@ -2,7 +2,10 @@
   import { onMount } from "svelte";
   import { afterNavigate, goto } from "$app/navigation";
   import { page } from "$app/stores";
-  import { trackPageView } from "$lib/analytics";
+  import {
+    initializeGoogleAnalytics,
+    trackPageView,
+  } from "$lib/analytics";
   import { auth } from "$lib/auth.svelte";
   import { sanitizeReturnTo } from "$lib/utils/returnTo";
   import { SITE_METADATA } from "$lib/config";
@@ -15,6 +18,8 @@
   let { children } = $props();
 
   const authBypassEnabled = import.meta.env.VITE_AUTH_BYPASS === "true";
+
+  initializeGoogleAnalytics(import.meta.env.VITE_GOOGLE_ANALYTICS_ID);
 
   afterNavigate(({ to }) => {
     if (!to) return;

@@ -11,16 +11,35 @@ export interface PageViewDetails {
   pageTitle: string;
 }
 
-type Gtag = (
-  command: "event",
-  eventName: string,
-  parameters: Record<string, string>
-) => void;
+type GtagArguments =
+  | ["js", Date]
+  | ["config", string, { send_page_view: boolean }]
+  | ["event", string, Record<string, string>];
+
+type Gtag = (...arguments_: GtagArguments) => void;
 
 declare global {
   interface Window {
+    dataLayer?: GtagArguments[];
     gtag?: Gtag;
   }
+}
+
+export function initializeGoogleAnalytics(measurementId?: string): void {
+  if (typeof window === "undefined" || !measurementId || window.gtag) return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = (...arguments_) => {
+    window.dataLayer?.push(arguments_);
+  };
+
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;
+  document.head.append(script);
+
+  window.gtag("js", new Date());
+  window.gtag("config", measurementId, { send_page_view: false });
 }
 
 export function trackPageView(details: PageViewDetails): void {
