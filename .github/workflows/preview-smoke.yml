@@ -5,6 +5,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   smoke:
@@ -12,6 +13,7 @@ jobs:
       github.event.deployment_status.state == 'success' &&
       github.event.deployment.environment == 'Preview'
     runs-on: ubuntu-latest
+    environment: preview-smoke
     timeout-minutes: 10
     concurrency:
       group: preview-smoke-${{ github.event.deployment.id }}
@@ -32,9 +34,19 @@ jobs:
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 
+      - name: Get GitHub OIDC token
+        id: oidc
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const token = await core.getIDToken();
+            core.setSecret(token);
+            core.setOutput("token", token);
+
       - name: Test deployed preview
         run: npm run test:e2e:deployed
         env:
           PLAYWRIGHT_BASE_URL: >-
             ${{ github.event.deployment_status.environment_url ||
             github.event.deployment_status.target_url }}
+          VERCEL_OIDC_TOKEN: ${{ steps.oidc.outputs.token }}

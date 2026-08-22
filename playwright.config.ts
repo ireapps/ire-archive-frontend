@@ -14,6 +14,7 @@ import { defineConfig, devices } from "@playwright/test";
 const testMode = process.env.TEST_MODE || "dev";
 const isPreviewMode = testMode === "preview";
 const deployedBaseUrl = process.env.PLAYWRIGHT_BASE_URL;
+const vercelOidcToken = process.env.VERCEL_OIDC_TOKEN;
 
 // Use different ports to avoid conflicts
 const devPort = Number(process.env.PLAYWRIGHT_DEV_PORT) || 5173;
@@ -43,6 +44,9 @@ export default defineConfig({
     // Reduce action timeout in CI
     actionTimeout: process.env.CI ? 5_000 : 10_000,
     navigationTimeout: process.env.CI ? 10_000 : 30_000,
+    extraHTTPHeaders: vercelOidcToken
+      ? { "x-vercel-trusted-oidc-idp-token": vercelOidcToken }
+      : undefined,
   },
 
   // Run fastest browser first for quicker feedback
