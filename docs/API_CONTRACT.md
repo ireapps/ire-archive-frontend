@@ -1,11 +1,45 @@
 # API Contract
 
-This document describes the HTTP API that the SvelteKit frontend expects from its backend.
-Any compatible backend must implement all endpoints below with the request/response shapes
-and authentication behavior documented here.
+This is the definitive HTTP contract between the static SvelteKit frontend and
+`ireapps/ire-archive-backend`. The backend owns MemberSuite authentication and
+the deployed search, resource, similar-resource, and stats API. The frontend
+must preserve the request/response shapes and authentication behavior below.
 
 > **Live reference:** The FastAPI backend at `https://api.archive.ire.org` serves interactive
 > OpenAPI documentation at `/docs` and a machine-readable schema at `/openapi.json`.
+
+---
+
+## System Boundary
+
+The repositories have separate responsibilities:
+
+| Repository             | Responsibility                                                                  |
+| ---------------------- | ------------------------------------------------------------------------------- |
+| `ire-archive-frontend` | Static member-facing search client deployed to Vercel                           |
+| `ire-archive-backend`  | MemberSuite auth and the API documented here                                    |
+| `ire-archive-data`     | Permanent editorial source of truth in Django/Postgres and deliberate snapshots |
+
+Only approved, published records may reach the API. Draft, withdrawn, and
+needs-review records must never appear in search results, resource responses,
+similar-resource responses, or stats. The data publication pipeline and
+backend index enforce that guarantee; the frontend must not recreate editorial
+status filtering.
+
+Django admin, publication mechanics, seed cleanup, Qdrant index construction,
+and Fly.io admin deployment are outside this repository.
+
+### Compatibility rules
+
+- Keep endpoint fields and metadata names stable. Additive metadata is safer
+  than renaming or removing fields.
+- Keep `vector_id` stable because `/resource/{vector_id}` is a user-facing deep
+  link and the same identifier connects search, detail, and similar responses.
+- Preserve offset pagination (`limit`, `offset`, `total`, `count`, and
+  `has_more`) and the `"hybrid"` and `"keyword"` search modes.
+- Category values are a shared taxonomy. Changes require coordinated data and
+  backend updates plus either a frontend `VITE_CATEGORIES` config redeploy or
+  a separately scoped categories endpoint.
 
 ---
 
@@ -395,7 +429,7 @@ interface ResourceMetadata {
   contest_entry_status?: string;
   downloads?: Download[]; // Downloadable files attached to this resource
   speakers?: string[];
-  [key: string]: any; // Additional fields may be present
+  [key: string]: unknown; // Additional additive fields may be present
 }
 
 interface Download {
@@ -448,4 +482,6 @@ Default limits (all configurable via environment variables):
 
 The frontend supports a `VITE_AUTH_BYPASS=true` mode that bypasses all backend calls and
 returns mock data instead. This is used in CI E2E tests to avoid requiring a live backend.
-See `src/lib/api.ts` for the mock data definitions.
+See `src/lib/api.ts` for the mock data definitions. Never enable this setting in
+production: `VITE_` values are embedded in the public browser bundle, and bypass mode
+would replace real API behavior with mock data.

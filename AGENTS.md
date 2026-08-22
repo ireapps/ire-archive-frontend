@@ -20,6 +20,29 @@ the mock data in `src/lib/api.ts`.
 Never enable `VITE_AUTH_BYPASS` in production. Variables prefixed with
 `VITE_` are public and are embedded into the browser bundle at build time.
 
+## Repository boundaries
+
+This repository is the static, member-facing search client. Follow
+`docs/API_CONTRACT.md` as the definitive frontend/backend contract.
+
+- `ire-archive-backend` owns MemberSuite authentication and the deployed
+  search, resource, similar-resource, and stats API.
+- `ire-archive-data` is the permanent editorial source of truth in Django and
+  Postgres. It deliberately publishes approved snapshots for the backend to
+  serve.
+- Draft, withdrawn, or needs-review records must never be exposed by this
+  client. Treat their absence as a publication guarantee, not a frontend
+  filtering task.
+- Django admin, publication jobs, seed cleanup, Qdrant index construction, and
+  Fly.io admin deployment belong in the data or backend repositories.
+
+Preserve endpoint shapes, credentialed cookie requests, CORS assumptions,
+search modes and offset pagination, metadata types, category values, and
+`vector_id` resource links. Prefer additive metadata fields over renaming or
+removing existing fields. Taxonomy changes require coordinated data and
+backend work plus either a frontend `VITE_CATEGORIES` redeploy or a separately
+planned categories endpoint.
+
 ## Commands
 
 ```bash
