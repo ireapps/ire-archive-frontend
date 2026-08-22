@@ -1,8 +1,8 @@
 <script lang="ts">
-  let { size = 'normal' }: { size?: 'normal' | 'compact' } = $props();
+  let { size = "normal" }: { size?: "normal" | "compact" } = $props();
 </script>
 
-<div class="skeleton-card" class:compact={size === 'compact'}>
+<div class="skeleton-card" class:compact={size === "compact"}>
   <div class="skeleton-title"></div>
   <div class="skeleton-byline"></div>
   <div class="skeleton-description">
@@ -14,7 +14,7 @@
 </div>
 
 <style lang="scss">
-  @use '../styles/mixins' as *;
+  @use "../styles/mixins" as *;
 
   .skeleton-card {
     @include card-item(var(--spacing-lg));

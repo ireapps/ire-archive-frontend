@@ -9,10 +9,10 @@
   // Determine video type based on file extension
   let videoType = $derived(() => {
     const lower = url.toLowerCase();
-    if (lower.endsWith('.mov')) return 'video/quicktime';
-    if (lower.endsWith('.webm')) return 'video/webm';
-    if (lower.endsWith('.avi')) return 'video/x-msvideo';
-    return 'video/mp4'; // default to mp4
+    if (lower.endsWith(".mov")) return "video/quicktime";
+    if (lower.endsWith(".webm")) return "video/webm";
+    if (lower.endsWith(".avi")) return "video/x-msvideo";
+    return "video/mp4"; // default to mp4
   });
 </script>
 
@@ -25,7 +25,7 @@
 </div>
 
 <style lang="scss">
-  @use '../styles/variables' as *;
+  @use "../styles/variables" as *;
 
   .video-viewer {
     border: 1px solid var(--color-border);

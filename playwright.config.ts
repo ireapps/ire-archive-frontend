@@ -13,10 +13,11 @@ import { defineConfig, devices } from "@playwright/test";
 
 const testMode = process.env.TEST_MODE || "dev";
 const isPreviewMode = testMode === "preview";
+const deployedBaseUrl = process.env.PLAYWRIGHT_BASE_URL;
 
 // Use different ports to avoid conflicts
-const devPort = 5173;
-const previewPort = 4173;
+const devPort = Number(process.env.PLAYWRIGHT_DEV_PORT) || 5173;
+const previewPort = Number(process.env.PLAYWRIGHT_PREVIEW_PORT) || 4173;
 const port = isPreviewMode ? previewPort : devPort;
 
 const testEnv = {
@@ -37,7 +38,7 @@ export default defineConfig({
   // Reduce timeout in CI to fail faster (default is 30s)
   timeout: process.env.CI ? 10_000 : 30_000,
   use: {
-    baseURL: `http://localhost:${port}`,
+    baseURL: deployedBaseUrl || `http://localhost:${port}`,
     trace: "on-first-retry",
     // Reduce action timeout in CI
     actionTimeout: process.env.CI ? 5_000 : 10_000,
@@ -61,11 +62,15 @@ export default defineConfig({
   ],
 
   /* Run local server before starting tests */
-  webServer: {
-    command: isPreviewMode ? "npm run build && npm run preview" : "npm run dev",
-    url: `http://localhost:${port}`,
-    reuseExistingServer: !process.env.CI,
-    timeout: isPreviewMode ? 120_000 : 60_000, // Preview needs more time for build
-    env: testEnv,
-  },
+  webServer: deployedBaseUrl
+    ? undefined
+    : {
+        command: isPreviewMode
+          ? `npm run build && npm run preview -- --port ${port}`
+          : `npm run dev -- --port ${port}`,
+        url: `http://localhost:${port}`,
+        reuseExistingServer: !process.env.CI,
+        timeout: isPreviewMode ? 120_000 : 60_000,
+        env: testEnv,
+      },
 });

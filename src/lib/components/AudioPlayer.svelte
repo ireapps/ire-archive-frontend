@@ -35,9 +35,14 @@
 <div class="audio-player">
   {#if hasError}
     <div class="audio-error">
-      <p>Unable to load audio. The file may be unavailable or your browser may not support this audio format.</p>
+      <p>
+        Unable to load audio. The file may be unavailable or your browser may
+        not support this audio format.
+      </p>
       <p class="audio-error-hint">
-        Try <a href={url} target="_blank" rel="noopener noreferrer">downloading {downloadName}</a> instead.
+        Try <a href={url} target="_blank" rel="noopener noreferrer"
+          >downloading {downloadName}</a
+        > instead.
       </p>
     </div>
   {:else}
@@ -61,7 +66,7 @@
 </div>
 
 <style lang="scss">
-  @use '../styles/variables' as *;
+  @use "../styles/variables" as *;
 
   .audio-player {
     margin-top: var(--spacing-md);

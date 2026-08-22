@@ -37,5 +37,5 @@ export default ts.config(
   },
   {
     ignores: [".svelte-kit/**", "dist/**", "coverage/**"],
-  },
+  }
 );

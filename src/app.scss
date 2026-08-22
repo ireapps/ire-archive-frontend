@@ -4,12 +4,13 @@
  */
 
 @font-face {
-  font-family: 'Mogan';
+  font-family: "Mogan";
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url('./assets/Mogan-Regular.woff2') format('woff2'),
-       url('./assets/Mogan-Regular.otf') format('opentype');
+  src:
+    url("./assets/Mogan-Regular.woff2") format("woff2"),
+    url("./assets/Mogan-Regular.otf") format("opentype");
 }
 
 /* CSS Reset */
@@ -110,11 +111,11 @@ body {
 }
 
 a {
-	color: var(--color-link);
-	text-decoration: none;
+  color: var(--color-link);
+  text-decoration: none;
 }
 
 a:hover {
-	color: var(--color-link-hover);
-	text-decoration: underline;
+  color: var(--color-link-hover);
+  text-decoration: underline;
 }

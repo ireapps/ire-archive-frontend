@@ -6,7 +6,7 @@
 </aside>
 
 <style lang="scss">
-  @use '../styles/variables' as *;
+  @use "../styles/variables" as *;
 
   .contact-callout {
     margin: var(--spacing-lg) 0 0 0;

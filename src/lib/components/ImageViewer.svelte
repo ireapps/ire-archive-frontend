@@ -12,7 +12,7 @@
 </div>
 
 <style lang="scss">
-  @use '../styles/variables' as *;
+  @use "../styles/variables" as *;
 
   .image-viewer {
     border: 1px solid var(--color-border);

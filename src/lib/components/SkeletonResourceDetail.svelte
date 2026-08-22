@@ -34,7 +34,7 @@
 </div>
 
 <style lang="scss">
-  @use '../styles/variables' as *;
+  @use "../styles/variables" as *;
 
   .skeleton-resource-detail {
     padding: 0;
