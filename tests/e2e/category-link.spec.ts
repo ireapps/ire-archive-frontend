@@ -13,7 +13,9 @@ test.describe("Category Link", () => {
     });
 
     // Find the category link in the metadata section
-    const categoryLink = page.locator(".metadata dd a", { hasText: "Tipsheet" });
+    const categoryLink = page.locator(".metadata dd a", {
+      hasText: "Tipsheet",
+    });
     await expect(categoryLink).toBeVisible();
 
     // Click the category link

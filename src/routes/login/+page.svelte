@@ -22,7 +22,13 @@
 <div class="login-container">
   <div class="login-card">
     <div class="login-header">
-      <img src={logoHeader} alt="IRE Logo" class="site-logo" width="60" height="60" />
+      <img
+        src={logoHeader}
+        alt="IRE Logo"
+        class="site-logo"
+        width="60"
+        height="60"
+      />
       <h1>Resource Center</h1>
     </div>
 

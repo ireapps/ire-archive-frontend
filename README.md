@@ -22,7 +22,7 @@ A SvelteKit frontend for searching IRE's archive of journalism resources — tip
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) 20+
+- [Node.js](https://nodejs.org/) 24
 - npm
 
 ---
@@ -45,15 +45,15 @@ To use the app fully, you need a running backend — see [Connecting to a Backen
 
 ## Environment Variables
 
-| Variable                | Required | Default                                                              | Description                                               |
-| ----------------------- | -------- | -------------------------------------------------------------------- | --------------------------------------------------------- |
-| `VITE_API_BASE_URL`     | Yes      | —                                                                    | URL of the compatible FastAPI backend                     |
-| `VITE_SITE_TITLE`       | No       | `"Archive Search"`                                                   | Site title for `<title>` and OG tags                      |
-| `VITE_SITE_DESCRIPTION` | No       | `"Search thousands of tipsheets..."`                                 | Meta description                                          |
-| `VITE_SITE_IMAGE`       | No       | `"/logo.png"`                                                        | OG image path (relative to `/static` or absolute URL)     |
-| `VITE_CATEGORIES`       | No       | `["audio","contest entry","dataset","journal","tipsheet","webinar"]` | Valid resource categories (JSON array)                    |
-| `VITE_GOOGLE_ANALYTICS_ID` | No    | —                                                                    | GA4 measurement ID; set only in production                |
-| `VITE_AUTH_BYPASS`      | No       | `"false"`                                                            | Skip auth for local dev/testing (never use in production) |
+| Variable                   | Required | Default                                                              | Description                                               |
+| -------------------------- | -------- | -------------------------------------------------------------------- | --------------------------------------------------------- |
+| `VITE_API_BASE_URL`        | Yes      | —                                                                    | URL of the compatible FastAPI backend                     |
+| `VITE_SITE_TITLE`          | No       | `"Archive Search"`                                                   | Site title for `<title>` and OG tags                      |
+| `VITE_SITE_DESCRIPTION`    | No       | `"Search thousands of tipsheets..."`                                 | Meta description                                          |
+| `VITE_SITE_IMAGE`          | No       | `"/logo.png"`                                                        | OG image path (relative to `/static` or absolute URL)     |
+| `VITE_CATEGORIES`          | No       | `["audio","contest entry","dataset","journal","tipsheet","webinar"]` | Valid resource categories (JSON array)                    |
+| `VITE_GOOGLE_ANALYTICS_ID` | No       | —                                                                    | GA4 measurement ID; set only in production                |
+| `VITE_AUTH_BYPASS`         | No       | `"false"`                                                            | Skip auth for local dev/testing (never use in production) |
 
 See [.env.example](.env.example) for a documented template.
 
@@ -100,6 +100,15 @@ VITE_AUTH_BYPASS=true npm run test:e2e:ui
 ```bash
 npm run check
 ```
+
+### Full Verification
+
+```bash
+npm run verify
+```
+
+This runs formatting checks, linting, type checks, unit tests with coverage,
+and the production build.
 
 ---
 

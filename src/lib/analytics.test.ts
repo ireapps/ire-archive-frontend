@@ -7,7 +7,9 @@ import {
 
 describe("initializeGoogleAnalytics", () => {
   afterEach(() => {
-    document.head.querySelector('script[src*="googletagmanager.com"]')?.remove();
+    document.head
+      .querySelector('script[src*="googletagmanager.com"]')
+      ?.remove();
     delete window.dataLayer;
     delete window.gtag;
   });

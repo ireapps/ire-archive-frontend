@@ -35,9 +35,14 @@
 <div class="pdf-viewer">
   {#if hasError}
     <div class="pdf-error">
-      <p>Unable to display PDF. The file may be unavailable or your browser may not support embedded PDFs.</p>
+      <p>
+        Unable to display PDF. The file may be unavailable or your browser may
+        not support embedded PDFs.
+      </p>
       <p class="pdf-error-hint">
-        Try <a href={url} target="_blank" rel="noopener noreferrer">downloading {downloadName}</a> instead.
+        Try <a href={url} target="_blank" rel="noopener noreferrer"
+          >downloading {downloadName}</a
+        > instead.
       </p>
     </div>
   {:else}
@@ -57,7 +62,7 @@
 </div>
 
 <style lang="scss">
-  @use '../styles/variables' as *;
+  @use "../styles/variables" as *;
 
   .pdf-viewer {
     border: 1px solid var(--color-border-dark);

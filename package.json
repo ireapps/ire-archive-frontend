@@ -3,21 +3,30 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "prepare": "svelte-kit sync",
     "preview": "vite preview",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "lint": "eslint .",
     "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
     "test": "vitest",
+    "test:run": "vitest run",
     "test:ui": "vitest --ui",
-    "test:coverage": "vitest --coverage",
+    "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:firefox": "playwright test --project=firefox",
     "test:e2e:preview": "TEST_MODE=preview playwright test",
     "test:e2e:preview:ui": "TEST_MODE=preview playwright test --ui",
-    "test:lighthouse": "lhci autorun"
+    "test:e2e:deployed": "playwright test tests/e2e/preview-smoke.spec.ts --project=chromium",
+    "test:lighthouse": "lhci autorun",
+    "verify": "npm run format:check && npm run lint && npm run check && npm run test:coverage && npm run build"
   },
   "devDependencies": {
     "@lhci/cli": "^0.15.1",

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { formatDescription } from '$lib/utils';
+  import { formatDescription } from "$lib/utils";
 
   interface Props {
     description?: string;
@@ -17,7 +17,7 @@
 {/if}
 
 <style lang="scss">
-  @use '../styles/variables' as *;
+  @use "../styles/variables" as *;
 
   h3 {
     font-size: var(--font-size-lg);

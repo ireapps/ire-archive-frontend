@@ -52,9 +52,7 @@
   <!-- Screen reader announcement for search results -->
   {#if hasSearched && !loading && results.length > 0}
     <div class="sr-only" role="status" aria-live="polite" aria-atomic="true">
-      {totalResults.toLocaleString()} results{query
-        ? ` for "${query}"`
-        : ""}
+      {totalResults.toLocaleString()} results{query ? ` for "${query}"` : ""}
     </div>
   {:else if hasSearched && !loading && results.length === 0}
     <div class="sr-only" role="status" aria-live="polite" aria-atomic="true">

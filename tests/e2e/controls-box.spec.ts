@@ -21,7 +21,7 @@ test.describe("Controls Box", () => {
       .count();
 
     // Find and click the controls box toggle button
-    const controlsToggle = page.locator('button.filter-toggle');
+    const controlsToggle = page.locator("button.filter-toggle");
     await expect(controlsToggle).toBeVisible();
     await controlsToggle.click();
 
@@ -32,7 +32,7 @@ test.describe("Controls Box", () => {
     expect(page.url()).toBe(initialUrl);
 
     // Verify the controls box is now visible
-    const controlsPanel = page.locator('#filter-controls-panel');
+    const controlsPanel = page.locator("#filter-controls-panel");
     await expect(controlsPanel).toBeVisible();
 
     // Verify the result count hasn't changed (no new search executed)
@@ -66,11 +66,11 @@ test.describe("Controls Box", () => {
     await page.waitForSelector('[data-testid="result-card"]');
 
     // Open the controls box
-    const controlsToggle = page.locator('button.filter-toggle');
+    const controlsToggle = page.locator("button.filter-toggle");
     await controlsToggle.click();
 
     // Wait for controls to be visible
-    const controlsPanel = page.locator('#filter-controls-panel');
+    const controlsPanel = page.locator("#filter-controls-panel");
     await expect(controlsPanel).toBeVisible();
 
     // Get initial URL
@@ -112,11 +112,11 @@ test.describe("Controls Box", () => {
     expect(page.url()).toBe(initialUrl);
 
     // Verify controls panel is visible
-    const controlsPanel = page.locator('#filter-controls-panel');
+    const controlsPanel = page.locator("#filter-controls-panel");
     await expect(controlsPanel).toBeVisible();
 
     // Verify sort select has focus
-    const sortSelect = page.locator('#sort-filter');
+    const sortSelect = page.locator("#sort-filter");
     await expect(sortSelect).toBeFocused();
   });
 });

@@ -35,11 +35,7 @@
     <h3>More like this</h3>
     <div class="similar-list">
       {#each resources as resource, index (resource.vector_id || resource.resource_id || index)}
-        <ResourceCard
-          {resource}
-          size="compact"
-          showScore={false}
-        />
+        <ResourceCard {resource} size="compact" showScore={false} />
       {/each}
     </div>
   </section>

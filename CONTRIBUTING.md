@@ -29,6 +29,7 @@ with:
 ## Submitting Pull Requests
 
 1. **Fork** the repository and create a branch from `main`:
+
    ```bash
    git checkout -b feat/your-feature-name
    ```
@@ -40,9 +41,9 @@ with:
    - E2E tests (Playwright) for new user flows
 
 4. **Run the checks** before submitting:
+
    ```bash
-   npm run check          # Type check
-   npm run test:coverage  # Unit tests
+   npm run verify
    VITE_AUTH_BYPASS=true npm run test:e2e  # E2E tests
    ```
 
