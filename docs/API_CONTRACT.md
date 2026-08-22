@@ -59,8 +59,9 @@ All endpoint paths below are relative to this base URL.
 ## Authentication Model
 
 The backend uses **server-side sessions stored in Redis**. Sessions are identified by an
-`HttpOnly` cookie. The frontend sends `credentials: "include"` on every request so the
-browser automatically includes this cookie.
+`HttpOnly` cookie. The frontend sends `credentials: "include"` on authenticated requests
+so the browser automatically includes this cookie. The public `GET /stats` request does
+not include credentials.
 
 ### Session cookie behavior
 
@@ -480,8 +481,9 @@ Default limits (all configurable via environment variables):
 
 ## Dev / Test Mode
 
-The frontend supports a `VITE_AUTH_BYPASS=true` mode that bypasses all backend calls and
-returns mock data instead. This is used in CI E2E tests to avoid requiring a live backend.
-See `src/lib/api.ts` for the mock data definitions. Never enable this setting in
-production: `VITE_` values are embedded in the public browser bundle, and bypass mode
-would replace real API behavior with mock data.
+The frontend supports a `VITE_AUTH_BYPASS=true` mode that bypasses authentication and
+returns mock search, resource, and similar-resource data. This is used in CI E2E tests
+to exercise protected user flows without a live authentication service. The public
+`GET /stats` request is not mocked. See `src/lib/api.ts` for the mock data definitions.
+Never enable this setting in production: `VITE_` values are embedded in the public
+browser bundle, and bypass mode would replace real API behavior with mock data.
