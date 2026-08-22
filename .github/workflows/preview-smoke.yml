@@ -16,11 +16,13 @@ jobs:
     environment: preview-smoke
     timeout-minutes: 10
     concurrency:
-      group: preview-smoke-${{ github.event.deployment.id }}
+      group: preview-smoke-${{ github.event.deployment.ref }}
       cancel-in-progress: true
     steps:
       - name: Check out repository
         uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.deployment.sha }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v6

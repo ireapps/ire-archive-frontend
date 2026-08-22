@@ -13,8 +13,15 @@ import { defineConfig, devices } from "@playwright/test";
 
 const testMode = process.env.TEST_MODE || "dev";
 const isPreviewMode = testMode === "preview";
-const deployedBaseUrl = process.env.PLAYWRIGHT_BASE_URL;
+const deployedBaseUrl = process.env.PLAYWRIGHT_BASE_URL?.trim();
 const vercelOidcToken = process.env.VERCEL_OIDC_TOKEN;
+
+if (
+  process.env.npm_lifecycle_event === "test:e2e:deployed" &&
+  !deployedBaseUrl
+) {
+  throw new Error("PLAYWRIGHT_BASE_URL is required for deployed smoke tests.");
+}
 
 // Use different ports to avoid conflicts
 const devPort = Number(process.env.PLAYWRIGHT_DEV_PORT) || 5173;
