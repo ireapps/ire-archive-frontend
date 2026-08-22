@@ -95,6 +95,18 @@
     return shuffled.slice(0, n);
   }
 
+  function getSeparator(index: number): string {
+    if (index < selectedSuggestions.length - 2) {
+      return ", ";
+    }
+
+    if (index === selectedSuggestions.length - 2) {
+      return " or ";
+    }
+
+    return "";
+  }
+
   function checkMobile() {
     isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
   }
@@ -134,7 +146,7 @@
         data-sveltekit-preload-data="hover"
         class="suggestion-link"
         aria-label={`Search for ${suggestion}`}>{suggestion}</a
-      >{#if i < selectedSuggestions.length - 2}, {/if}{#if i === selectedSuggestions.length - 2} or {/if}
+      >{getSeparator(i)}
     {/each}.
   </p>
 </div>
