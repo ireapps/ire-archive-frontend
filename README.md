@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/ireapps/ire-archive-frontend/actions/workflows/ci.yml/badge.svg)](https://github.com/ireapps/ire-archive-frontend/actions/workflows/ci.yml)
 
-A SvelteKit frontend for searching IRE's archive of journalism resources — tipsheets, contest entries, transcripts, datasets, and training materials from decades of investigative reporting conferences.
+A static SvelteKit member client for searching IRE's archive of journalism resources — tipsheets, contest entries, transcripts, datasets, and training materials from decades of investigative reporting conferences.
 
 **Live URL:** [archive.ire.org](https://archive.ire.org)
 
@@ -67,7 +67,7 @@ Set `VITE_API_BASE_URL` in your `.env.development` file to point at a compatible
 VITE_API_BASE_URL=http://localhost:8000
 ```
 
-The backend must implement the endpoints described in [docs/API_CONTRACT.md](docs/API_CONTRACT.md). The reference implementation is the FastAPI backend in [ireapps/ire-archive-backend](https://github.com/ireapps/ire-archive-backend).
+The production API is owned by the FastAPI service in [ireapps/ire-archive-backend](https://github.com/ireapps/ire-archive-backend). It handles MemberSuite authentication and serves the search, resource, similar-resource, and stats endpoints. [docs/API_CONTRACT.md](docs/API_CONTRACT.md) is the definitive contract this client depends on.
 
 **CORS:** The backend must include your frontend's origin in its CORS allowed origins. The reference backend supports runtime-configurable origins via the `ADDITIONAL_ALLOWED_ORIGINS` env var.
 
@@ -144,6 +144,21 @@ The `dist/` output works on any static host (Netlify, GitHub Pages, Cloudflare P
 ---
 
 ## Architecture
+
+The repositories have distinct responsibilities:
+
+- **`ire-archive-frontend` (this repository):** Static, member-facing search
+  client deployed to Vercel.
+- **`ire-archive-backend`:** MemberSuite authentication and the API consumed by
+  this client.
+- **`ire-archive-data`:** Permanent editorial source of truth in Django and
+  Postgres. It deliberately publishes approved snapshots for downstream use.
+
+Draft, withdrawn, and needs-review records must not reach the frontend.
+Editorial workflows, Django admin, publication jobs, seed cleanup, Qdrant
+index construction, and Fly.io admin deployment are outside this repository.
+See [the API contract](docs/API_CONTRACT.md) before changing API calls, types,
+categories, or resource links.
 
 ```
 src/
