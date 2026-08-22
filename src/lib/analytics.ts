@@ -5,6 +5,12 @@ export interface ResourceDownloadDetails {
   resourceTitle: string;
 }
 
+export interface PageViewDetails {
+  pageLocation: string;
+  pagePath: string;
+  pageTitle: string;
+}
+
 type Gtag = (
   command: "event",
   eventName: string,
@@ -15,6 +21,14 @@ declare global {
   interface Window {
     gtag?: Gtag;
   }
+}
+
+export function trackPageView(details: PageViewDetails): void {
+  window.gtag?.("event", "page_view", {
+    page_location: details.pageLocation,
+    page_path: details.pagePath,
+    page_title: details.pageTitle,
+  });
 }
 
 export function trackResourceDownload(details: ResourceDownloadDetails): void {

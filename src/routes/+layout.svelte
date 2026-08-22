@@ -1,7 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { goto } from "$app/navigation";
+  import { afterNavigate, goto } from "$app/navigation";
   import { page } from "$app/stores";
+  import { trackPageView } from "$lib/analytics";
   import { auth } from "$lib/auth.svelte";
   import { sanitizeReturnTo } from "$lib/utils/returnTo";
   import { SITE_METADATA } from "$lib/config";
@@ -14,6 +15,16 @@
   let { children } = $props();
 
   const authBypassEnabled = import.meta.env.VITE_AUTH_BYPASS === "true";
+
+  afterNavigate(({ to }) => {
+    if (!to) return;
+
+    trackPageView({
+      pageLocation: to.url.href,
+      pagePath: to.url.pathname + to.url.search,
+      pageTitle: document.title,
+    });
+  });
 
   // Check if we're on the homepage (show centered layout)
   let isHomepage = $derived($page.url.pathname === "/");

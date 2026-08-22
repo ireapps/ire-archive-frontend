@@ -1,5 +1,28 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { trackResourceDownload } from "./analytics";
+import { trackPageView, trackResourceDownload } from "./analytics";
+
+describe("trackPageView", () => {
+  afterEach(() => {
+    delete window.gtag;
+  });
+
+  it("sends the current page details to Google Analytics", () => {
+    const gtag = vi.fn();
+    window.gtag = gtag;
+
+    trackPageView({
+      pageLocation: "https://archive.ire.org/search?q=data",
+      pagePath: "/search?q=data",
+      pageTitle: "Search results",
+    });
+
+    expect(gtag).toHaveBeenCalledWith("event", "page_view", {
+      page_location: "https://archive.ire.org/search?q=data",
+      page_path: "/search?q=data",
+      page_title: "Search results",
+    });
+  });
+});
 
 describe("trackResourceDownload", () => {
   afterEach(() => {
