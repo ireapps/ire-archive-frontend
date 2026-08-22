@@ -8,6 +8,7 @@
     isOfficeDoc,
     getFilenameFromUrl,
   } from "$lib/utils";
+  import { trackResourceDownload } from "$lib/analytics";
   import PdfViewer from "./PdfViewer.svelte";
   import AudioPlayer from "./AudioPlayer.svelte";
   import ImageViewer from "./ImageViewer.svelte";
@@ -16,9 +17,11 @@
 
   interface Props {
     downloads: Download[];
+    resourceId: string;
+    resourceTitle: string;
   }
 
-  let { downloads }: Props = $props();
+  let { downloads, resourceId, resourceTitle }: Props = $props();
 </script>
 
 {#if downloads && downloads.length > 0}
@@ -26,14 +29,22 @@
     <h3>Downloads</h3>
     <ul>
       {#each downloads as download (download.id)}
+        {@const fileName = getFilenameFromUrl(download.url, download.name)}
         <li>
           <a
             href={download.url}
             target="_blank"
             rel="noopener noreferrer"
             class="download-link"
+            onclick={() =>
+              trackResourceDownload({
+                downloadId: download.id,
+                fileName,
+                resourceId,
+                resourceTitle,
+              })}
           >
-            {getFilenameFromUrl(download.url, download.name)}
+            {fileName}
           </a>
 
           {#if isPdf(download.url)}
