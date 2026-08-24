@@ -20,12 +20,12 @@ jobs:
       cancel-in-progress: true
     steps:
       - name: Check out repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event.deployment.sha }}
 
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: "24"
           cache: npm
@@ -38,7 +38,7 @@ jobs:
 
       - name: Get GitHub OIDC token
         id: oidc
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const token = await core.getIDToken();
